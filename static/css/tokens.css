@@ -1,0 +1,72 @@
+
+:root {
+  /* color — Cobalt */
+  --color-paper:      oklch(0% 0 0);
+  --color-paper-2:    oklch(23.436% 0.00247 248.181);
+  --color-paper-3:    oklch(59.542% 0.00393 248.286);
+  --color-rule:       oklch(74.218% 0.15163 90.438);
+  --color-rule-2:     oklch(94.445% 0.1306 130.964);
+  --color-neutral:    oklch(83.525% 0.02964 249.878);
+  --color-muted:      oklch(58.801% 0.06171 253.649);
+  --color-ink:        oklch(68.27% 0.17217 40.817);
+  --color-ink-2:      oklch(64.322% 0.28391 320.001);
+  --color-graphite:   oklch(88.935% 0.03207 255.648);
+  --color-graphite-2: oklch(76.314% 0.02917 258.416);
+  --color-graphite-3: oklch(95.146% 0.00467 258.627);
+  --color-on-graphite:oklch(33.656% 0.00379 264.588);
+  --color-on-graphite-muted: oklch(72% 0.014 254);
+  --color-paper-glass:oklch(49.925% 0.07206 258.061 / 0.85);
+  --color-paper-veil: oklch(66.975% 0.13779 139.122 / 0.6);;
+  --shadow-whisper:   0 1px 2px oklch(72.023% 0.00863 254.043 / 0.05);
+  --color-accent:     oklch(80.589% 0.16586 96.426);
+  --color-accent-deep:oklch(63.958% 0.13894 69.495);
+  --color-accent-2:   oklch(70% 0.14 250);
+  --color-accent-ink: oklch(26.18% 0.11234 326.63);
+  --color-accent-wash:oklch(31.427% 0.09105 254.821);
+  --color-focus:      oklch(79.137% 0.20853 151.943);
+  --color-error:      oklch(61.03% 0.23302 23.301);
+  --color-error-bg:   oklch(23.524% 0.08433 32.746);
+
+  /* type */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --text-xs:   0.72rem;
+  --text-sm:   0.8125rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.5625rem;
+  --text-xl:   1.9531rem;
+  --text-2xl:  2.4414rem;
+
+  /* space — 4pt scale */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* motion */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long:  420ms;
+
+  /* structure */
+  --radius-ctrl: 6px;
+  --radius-card: 10px;
+  --rule-hairline: 1px solid var(--color-rule);
+
+  /* z */
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 200;
+  --z-toast: 500;
+}

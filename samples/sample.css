@@ -1,0 +1,70 @@
+/* Chromap sample — one of everything the scanner reads. */
+
+:root {
+  --surface: #faf7f2;
+  --surface-2: #efe9df;
+  --ink: #2b2620;
+  --line: rgba(43, 38, 32, 0.18);
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  border-top: 4px solid tomato;
+}
+
+.header {
+  background: hsl(210, 65%, 32%);
+  color: ivory;
+  box-shadow: 0 2px 8px rgba(16, 42, 67, 0.35);
+}
+
+.nav a {
+  color: #9bd1ff;
+}
+
+.nav a:hover {
+  color: white;
+  border-bottom: 2px solid gold;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d8cfc0;
+  color: #4a4238;
+}
+
+.card--featured {
+  background: hsla(150, 40%, 92%, 0.9);
+  border-color: seagreen;
+}
+
+.badge--new {
+  background: crimson;
+  color: #fff;
+}
+
+.badge--beta {
+  background: rgb(120, 86, 255);
+  color: #f4f0ff;
+}
+
+.footer {
+  background: #1d2733;
+  color: #aab6c3;
+}
+
+.footer .accent {
+  color: #ffb454;
+}
+
+.alert {
+  background: #fde8e8;
+  border: 1px solid #c0392b;
+  color: #8c2318;
+}
+
+.success {
+  color: forestgreen;
+  background: #e9f7ec;
+}
