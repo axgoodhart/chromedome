@@ -222,12 +222,15 @@ function createSphereView({ canvas, scrub, scrubOut, replay, spinToggle }) {
 
   const TILT = (17 * Math.PI) / 180;
   const CHROMA_EDGE = 0.33;   // Oklab chroma that reaches the surface
+  const MORPH_DURATION = 1100;
+  const MORPH_GAP = 5000;
 
   let points = [];
   let spin = 0;
   let spinning = true;
   let t = 1;
-  let morph = null;           // {from, to, start, dur}
+  let morph = null;           // {from, to, elapsed, dur}
+  let gapTimer = null;
   let frame = null;
   let last = 0;
   let active = false;
@@ -375,6 +378,35 @@ function createSphereView({ canvas, scrub, scrubOut, replay, spinToggle }) {
     frame = requestAnimationFrame(tick);
   }
 
+  function clearGap() {
+    if (gapTimer !== null) clearTimeout(gapTimer);
+    gapTimer = null;
+  }
+
+  function startMorph(to, from = t) {
+    clearGap();
+    if (!active || !points.length) return;
+    if (reduced.matches) {
+      morph = null;
+      setT(to);
+      draw();
+      return;
+    }
+    setT(from);
+    morph = { from, to, elapsed: 0, dur: MORPH_DURATION };
+    last = 0;
+    schedule();
+  }
+
+  function queueReverse() {
+    clearGap();
+    if (!active || reduced.matches || !points.length) return;
+    gapTimer = setTimeout(() => {
+      gapTimer = null;
+      startMorph(t >= 0.5 ? 0 : 1);
+    }, MORPH_GAP);
+  }
+
   function tick(now) {
     frame = null;
     const dt = last ? Math.min(64, now - last) : 16;
@@ -388,7 +420,10 @@ function createSphereView({ canvas, scrub, scrubOut, replay, spinToggle }) {
       morph.elapsed += dt;
       const p = CS.clamp(morph.elapsed / morph.dur, 0, 1);
       setT(morph.from + (morph.to - morph.from) * p);
-      if (p >= 1) morph = null;
+      if (p >= 1) {
+        morph = null;
+        queueReverse();
+      }
     }
 
     draw();
@@ -397,22 +432,15 @@ function createSphereView({ canvas, scrub, scrubOut, replay, spinToggle }) {
 
   function play() {
     if (!points.length) return;
-    if (reduced.matches) {
-      morph = null;
-      setT(1);
-      draw();
-      return;
-    }
-    setT(0);
-    morph = { from: 0, to: 1, elapsed: 0, dur: 1100 };
-    last = 0;
-    schedule();
+    startMorph(1, 0);
   }
 
   function setActive(on) {
     if (on === active) return;
     active = on;
     if (!on) {
+      clearGap();
+      morph = null;
       if (frame) cancelAnimationFrame(frame);
       frame = null;
       last = 0;
@@ -423,9 +451,11 @@ function createSphereView({ canvas, scrub, scrubOut, replay, spinToggle }) {
   }
 
   scrub.addEventListener("input", () => {
+    clearGap();
     morph = null;
     setT(Number(scrub.value) / 100);
     if (!frame) draw();
+    queueReverse();
   });
 
   replay.addEventListener("click", play);
