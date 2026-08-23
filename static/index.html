@@ -62,6 +62,9 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .source-add.is-dragging{border-color:var(--yellow);background:#171b0c}
 .source-cue{align-items:center;justify-content:center;text-align:center;color:#808084;font-weight:700;font-size:1.12rem;line-height:1.35;text-transform:uppercase}
 .source-summary{position:absolute;left:clamp(24px,3.5vw,58px);margin-top:166px;color:var(--muted);font:500 .72rem/1.4 var(--font-mono);letter-spacing:.04em}
+.source-resume{position:absolute;left:clamp(24px,3.5vw,58px);right:clamp(24px,3.5vw,58px);margin-top:192px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.72rem}
+.project-box{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--muted);font:600 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.project-box input{background:var(--surface-2);border:1px solid var(--line);color:var(--mint);border-radius:6px;padding:5px 10px;min-height:0;width:11rem;font:600 .8rem var(--font-mono)}
 
 /* workspace chrome */
 .workspace{background:linear-gradient(180deg,#0c0f13,#07090c 38rem);min-height:760px;border-top:1px solid #0f1319}
@@ -123,7 +126,7 @@ input[type=range]{accent-color:var(--mint);min-width:150px}
 .themeknob{display:grid;grid-template-columns:190px minmax(150px,1fr) 150px;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
 .themeknob .tn{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis}.themeknob .tn em{display:block;font-size:.7rem;color:var(--muted);font-style:normal}.themeknob .out{text-align:right;color:var(--mint);font:.76rem var(--font-mono)}
 .g{color:var(--ink);line-height:1;display:inline-block}.radbox{width:34px;height:34px;background:var(--mint);opacity:.8}.durbar{width:60px;height:6px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}.durbar i{position:absolute;inset:0 auto 0 0;width:26%;background:var(--mint);animation:sweep linear infinite}
-@keyframes sweep{to{left:74%}}.lenbar{height:12px;background:#ffc66e;opacity:.8;border-radius:2px;min-width:2px}
+@keyframes sweep{to{transform:translateX(284.6%)}}.lenbar{height:12px;background:#ffc66e;opacity:.8;border-radius:2px;min-width:2px}
 
 /* color families + inventory */
 .fam{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:10px;display:grid;grid-template-columns:180px 1fr;gap:18px}.fam.solo{opacity:.55}
@@ -141,7 +144,7 @@ input[type=range]{accent-color:var(--mint);min-width:150px}
 .colorlab{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:24px;align-items:start}.lab-controls{position:sticky;top:16px;background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:10px;max-height:calc(100vh - 32px);overflow:auto}
 .lab-title{margin:0 0 6px;font-size:1.05rem}.lab-sub{margin:0 0 18px;color:var(--muted);font-size:.76rem}.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .mode{position:relative}.mode input{position:absolute;opacity:0;pointer-events:none}.mode span{display:grid;place-items:center;min-height:42px;border:1px solid var(--line);border-radius:6px;color:var(--muted);font-size:.78rem;cursor:pointer}.mode input:checked+span{background:var(--mint);border-color:var(--mint);color:#071410;font-weight:700}.mode input:focus-visible+span{outline:2px solid var(--yellow);outline-offset:2px}
-.panel-block{padding-top:16px;margin-top:16px;border-top:1px solid var(--line)}.panel-block h3{margin:0 0 10px;color:var(--ink-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}.field{margin:10px 0}.field label{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.76rem;margin-bottom:5px}.field output{color:var(--mint);font-family:var(--font-mono)}.field input[type=range]{width:100%;margin:0}
+.panel-block{padding-top:16px;margin-top:16px;border-top:1px solid var(--line)}.panel-block h3{margin:0 0 10px;color:var(--ink-2);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}.field{margin:10px 0}.field label{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.76rem;margin-bottom:5px}.field output{color:var(--mint);font-family:var(--font-mono)}.field input[type=range]{width:100%;margin:0}.invert-control{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:44px;margin:0 0 14px;padding:9px 10px;border:1px solid var(--line);border-radius:7px;background:var(--surface-2);color:var(--ink-2);font-size:.76rem;cursor:pointer}.invert-control:hover{border-color:var(--muted);background:var(--surface-3)}.invert-control:has(input:checked){border-color:var(--mint);background:#13201d;color:var(--mint)}.invert-control input{width:18px;height:18px;margin:0;accent-color:var(--mint)}.invert-control:has(input:focus-visible){outline:2px solid var(--yellow);outline-offset:3px}
 .anchor-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.anchor{display:flex;align-items:center;gap:7px;border:1px solid var(--line);padding:6px;border-radius:6px;color:var(--muted);font-size:.7rem}.anchor input[type=color]{width:38px;height:28px;border:0;background:none;padding:0}.anchor input[type=checkbox]{accent-color:var(--mint)}
 .theme-strip{display:flex;height:20px;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:8px}.theme-strip i{flex:1;min-width:2px}.lab-main{min-width:0}.lab-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}.lab-status{color:var(--muted);font:.72rem var(--font-mono);letter-spacing:.05em}
 .views{display:flex;border:1px solid var(--line);border-radius:7px;padding:2px}.views label{position:relative}.views input{position:absolute;opacity:0}.views span{display:grid;place-items:center;min-height:34px;padding:0 13px;color:var(--muted);font-size:.72rem;border-radius:5px;cursor:pointer}.views input:checked+span{background:var(--surface-3);color:var(--mint)}.views input:focus-visible+span{outline:2px solid var(--yellow)}
@@ -170,6 +173,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
 <a class="skip" href="#workspace">Skip to analysis</a>
 <header class="mast">
   <h1 class="wordmark" aria-label="ConsoliChrome"><span class="c1">C</span><span class="c2">O</span><span class="c3">N</span><span class="c4">S</span><span class="c5">O</span><span class="c6">L</span><span class="c1">I</span><span class="chrome">CHROME</span></h1>
+  <div class="project-box"><span>Project</span><input id="project-name" type="text" value="workspace" aria-label="Project name in the object store"></div>
   <div id="spectrumMarker" class="spectrum-marker" aria-hidden="true"></div>
 </header>
 
@@ -187,6 +191,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
     <div class="source-cue" id="source-cue">First, add a<br>stylesheet</div>
   </div>
   <div class="source-summary" id="source-summary" role="status" aria-live="polite">Nothing added · files stay in this browser tab</div>
+  <div class="source-resume" id="resume-row"></div>
 </section>
 
 <main class="workspace" id="workspace" hidden>
@@ -195,6 +200,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
     <button class="tab" role="tab" aria-selected="false" data-screen="fam">Family finder</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="wall">Inventory wall</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="cross">Across themes</button>
+    <button class="tab" role="tab" aria-selected="false" data-screen="obj">Objects</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="color">Color lab</button>
     <button class="export-jump" id="jump-export" type="button">Export CSS ↓</button>
   </nav>
@@ -242,6 +248,17 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
     <div class="card"><h3>Invariant tokens <span>same value in every theme that defines them</span></h3><div id="invbox"></div></div>
   </section>
 
+  <section class="screen" id="screen-obj">
+    <p class="lede">The object store's view: every selector consolidated into <b>one entity per context</b>, duplicates merged by cascade order, every overridden value kept with its source. Click a row for the full property history.</p>
+    <div class="row" style="margin-bottom:16px">
+      <label>Filter <input type="text" id="objfilter" placeholder=".dim-mode"></label>
+      <span class="hint" id="objstat"></span>
+      <span class="spacer"></span>
+      <button class="btn compact primary" id="obj-download" type="button">Download consolidated CSS</button>
+    </div>
+    <div class="card"><div style="overflow:auto;max-height:640px"><table class="tbl" id="objtbl"></table></div></div>
+  </section>
+
   <section class="screen" id="screen-color">
     <div class="lab-error" id="lab-error" hidden></div>
     <div class="colorlab">
@@ -259,7 +276,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
         <div class="panel-block mode-panel" data-mode="align" hidden><h3>Anchors</h3><div class="anchor-grid" id="anchor-grid"></div><div class="field"><label for="align-dir">Drift direction</label><select id="align-dir" style="min-width:0;width:100%"><option value="warmer">Warmer</option><option value="cooler">Cooler</option><option value="lighter">Lighter</option><option value="darker">Darker</option></select></div><div class="field"><label>Drift strength <output id="align-threshold-out">40%</output></label><input id="align-threshold" type="range" min="0" max="100" step="5" value="40"></div></div>
         <div class="panel-block mode-panel" data-mode="shuffle" hidden><h3>Deck</h3><div class="row"><label class="hint"><input type="radio" name="shuffle-variant" value="permute" checked> Existing</label><label class="hint"><input type="radio" name="shuffle-variant" value="random"> Random</label><button class="btn compact" id="reshuffle" type="button">Reshuffle</button></div><div class="field"><label>Hue drift <output id="shuffle-drift-out">0%</output></label><input id="shuffle-drift" type="range" min="0" max="100" step="5" value="0"></div><div class="field"><label>Tone deviation <output id="shuffle-deviation-out">0%</output></label><input id="shuffle-deviation" type="range" min="0" max="100" step="5" value="0"></div></div>
         <div class="panel-block mode-panel" data-mode="theme" hidden><h3>Theme table</h3><select id="theme-preset" style="min-width:0;width:100%"><option value="nord">Nord</option></select><div class="theme-strip" id="theme-strip"></div><div id="custom-theme-wrap" hidden><div class="field"><label for="custom-theme">Custom hex colors</label><textarea id="custom-theme" rows="4">#17233f, #365486, #7fc7d9, #dcf2f1, #d67b5b, #d6a84b</textarea></div></div><div class="field"><label>Hue drift <output id="theme-drift-out">0%</output></label><input id="theme-drift" type="range" min="0" max="100" step="5" value="0"></div><div class="field"><label>Tone deviation <output id="theme-deviation-out">0%</output></label><input id="theme-deviation" type="range" min="0" max="100" step="5" value="0"></div></div>
-        <div class="panel-block"><h3>Adjust result</h3><div id="adjust-fields"></div><button class="btn compact" id="adjust-reset" type="button">Reset adjustments</button></div>
+        <div class="panel-block"><h3>Adjust result</h3><label class="invert-control" for="adjust-invert"><span>Invert all colors</span><input id="adjust-invert" type="checkbox" role="switch"></label><div id="adjust-fields"></div><button class="btn compact" id="adjust-reset" type="button">Reset adjustments</button></div>
       </aside>
       <div class="lab-main">
         <div class="lab-head"><div class="row"><span class="lab-status" id="lab-status">WAITING FOR CSS</span><button class="btn compact" id="copy-result" type="button" disabled>Copy result</button><button class="btn compact primary" id="download-result" type="button" disabled>Download CSS</button></div>
@@ -276,7 +293,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
       <header class="export-head"><h2 class="export-title" id="export-title">Export result<span>All enabled tier decisions and Color Lab changes are combined here.</span></h2>
         <div class="export-actions"><span class="export-status" id="export-status" role="status" aria-live="polite">WAITING FOR SOURCE</span><button class="btn compact" id="export-copy" type="button" disabled>Copy result</button><button class="btn compact export-ready" id="export-download" type="button" disabled>Download CSS</button></div></header>
       <section class="staged-panel" id="staged-changes" aria-labelledby="staged-title"><div class="staged-heading"><h3 id="staged-title">Staged changes</h3><output id="staged-count">0</output></div><div class="staged-list" id="staged-list"><p class="staged-empty">No changes staged; export matches the source.</p></div></section>
-      <pre class="export-preview" id="export-preview" tabindex="0" data-placeholder="Add a stylesheet to prepare an export preview."></pre><div class="export-note" id="export-note">The source stylesheets stay untouched.</div>
+      <pre class="export-preview" id="export-preview" tabindex="0" data-placeholder="Add a stylesheet to enable the export."></pre><div class="export-note" id="export-note">The source stylesheets stay untouched.</div>
     </div>
   </section>
 </main>
@@ -296,11 +313,17 @@ const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const el=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!=null)node.textContent=text;return node};
 const debounce=(fn,ms)=>{let timer,lastArgs;const wrapped=(...args)=>{lastArgs=args;clearTimeout(timer);timer=setTimeout(()=>{timer=null;fn(...lastArgs)},ms)};wrapped.cancel=()=>{clearTimeout(timer);timer=null};wrapped.flush=()=>{if(timer){clearTimeout(timer);timer=null;return fn(...lastArgs)}};return wrapped};
 const fmt=n=>Number(n||0).toLocaleString();
-const yieldToBrowser=()=>new Promise(resolve=>setTimeout(resolve,0));
+/* setTimeout(0) is throttled to ~1 tick/s in hidden tabs, stalling chunked work. */
+const yieldToBrowser=(()=>{
+  if(window.scheduler?.yield)return()=>scheduler.yield();
+  const channel=new MessageChannel(),queue=[];channel.port1.onmessage=()=>queue.shift()?.();
+  return()=>new Promise(resolve=>{queue.push(resolve);channel.port2.postMessage(0)});
+})();
 let D=null,M=null;
 const exemptions=new Set();
 const scopeFilter={all:true,selected:new Set()};
-const workbenchNames=['tier','fam','wall','cross','color'];
+let scopedTotalsCache=null;
+const workbenchNames=['tier','fam','wall','cross','obj','color'];
 const dirtyWorkbenches=new Set(workbenchNames);
 
 function activeWorkbench(){return $('.tab[aria-selected="true"]')?.dataset.screen||'tier'}
@@ -311,6 +334,7 @@ function renderWorkbench(name=activeWorkbench()){
   else if(name==='fam')drawFamilies();
   else if(name==='wall')drawWall();
   else if(name==='cross')drawCross();
+  else if(name==='obj')drawObjects();
   else if(name==='color')invalidateColorViews();
 }
 
@@ -373,7 +397,7 @@ async function addFiles(fileList){
   const accepted=files.filter(file=>/\.(css|scss|sass|less|pcss|txt)$/i.test(file.name)||file.type==='text/css');
   if(!accepted.length)return;
   const rows=await Promise.all(accepted.map(async file=>({id:++sourceId,name:file.name,content:await file.text()})));
-  sources.push(...rows);renderSources();queueAnalysis();
+  sources.push(...rows);renderSources();queueAnalysis();ccdbImport(rows);
   $('#file-input').value='';
 }
 
@@ -385,14 +409,26 @@ sourceAdd.addEventListener('drop',event=>addFiles(event.dataTransfer.files));
 const pasteDialog=$('#paste-dialog');
 $('#paste-open').onclick=()=>{pasteDialog.showModal();requestAnimationFrame(()=>$('#paste-text').focus())};
 $('#paste-cancel').onclick=()=>pasteDialog.close();
-$('#paste-text').addEventListener('input',event=>{$('#paste-count').textContent=`${fmt(event.target.value.length)} characters`;$('#paste-error').hidden=true});
+/* A megabyte in the textarea stalls the main thread on layout; hold big
+   pastes out of the DOM and submit them from the capture instead. */
+const PASTE_PREVIEW_LIMIT=100000,PASTE_PLACEHOLDER=$('#paste-text').placeholder;
+let pastedPayload=null;
+function clearPastedPayload(){pastedPayload=null;$('#paste-text').placeholder=PASTE_PLACEHOLDER}
+$('#paste-text').addEventListener('paste',event=>{
+  const text=event.clipboardData?.getData('text/plain')||'';
+  if(text.length<=PASTE_PREVIEW_LIMIT){clearPastedPayload();return}
+  event.preventDefault();pastedPayload=text;const area=$('#paste-text');area.value='';
+  area.placeholder=`${fmt(text.length)} characters captured — the preview is skipped for a paste this large. Paste again to replace it, or type to start over.`;
+  $('#paste-count').textContent=`${fmt(text.length)} characters captured`;$('#paste-error').hidden=true;
+});
+$('#paste-text').addEventListener('input',event=>{clearPastedPayload();$('#paste-count').textContent=`${fmt(event.target.value.length)} characters`;$('#paste-error').hidden=true});
 $('#paste-form').addEventListener('submit',event=>{
-  event.preventDefault();const content=$('#paste-text').value;
+  event.preventDefault();const content=pastedPayload??$('#paste-text').value;
   if(!content.trim()){const error=$('#paste-error');error.textContent='Paste some stylesheet text first.';error.hidden=false;return}
   let name=$('#paste-name').value.trim()||`pasted-${sourceId+1}.css`;if(!/\.[a-z0-9]+$/i.test(name))name+='.css';
   sources.push({id:++sourceId,name,content});
-  $('#paste-text').value='';$('#paste-count').textContent='0 characters';$('#paste-name').value=`pasted-${sourceId+1}.css`;
-  pasteDialog.close();renderSources();queueAnalysis();
+  clearPastedPayload();$('#paste-text').value='';$('#paste-count').textContent='0 characters';$('#paste-name').value=`pasted-${sourceId+1}.css`;
+  pasteDialog.close();renderSources();queueAnalysis();ccdbImport([sources[sources.length-1]]);
 });
 
 const PARAM_DEFS={
@@ -444,25 +480,23 @@ function declarationParts(part){
   }return null;
 }
 const GLOBAL_SCOPE='@global';
-const STANDARD_PSEUDOS=new Set('active any-link autofill blank checked current default defined disabled empty enabled first first-child first-of-type focus focus-visible focus-within fullscreen future has host hover in-range indeterminate invalid is lang last-child last-of-type left link local-link modal not nth-child nth-col nth-last-child nth-last-col nth-last-of-type nth-of-type only-child only-of-type optional out-of-range past paused picture-in-picture placeholder-shown playing read-only read-write required right root scope state target target-within user-invalid user-valid valid visited where'.split(' '));
+/* Themes are identified by exactly one syntax — :root[data-theme=...] at the
+   start of a selector arm — by decision (2026-08-19): class and pseudo-class
+   heuristics fabricated ~50 themes out of .theme-studio-* style UI classes. */
 function selectorThemeInfo(selector){
   const info=[];
   splitTopLevel(selector,',').forEach(rawArm=>{
     const arm=rawArm.trim();if(!arm)return;
     const found=[];
-    for(const match of arm.matchAll(/\[\s*data-theme\s*(?:[~|^$*]?=)\s*(?:["']([^"']+)["']|([^\]\s]+))[^\]]*\]/gi))found.push((match[1]||match[2]||'').trim());
-    for(const match of arm.matchAll(/:theme-([\w-]+)/gi))found.push(match[1]);
-    const rootClass=arm.match(/^(?:(?:html|body|:root))?\.theme-([\w-]+)(?:\b|$)/i);
-    if(rootClass&&!/(?:switcher|toggle|picker|selector|button|menu|option|preview|card|label|control)$/i.test(rootClass[1]))found.push(rootClass[1]);
+    const themed=arm.match(/^:root\s*\[\s*data-theme\s*(?:[~|^$*]?=)\s*(?:["']([^"']+)["']|([^\]\s]+))\s*\]/i);
+    if(themed)found.push((themed[1]||themed[2]||'').trim());
     if(!found.length&&/^:root\b/i.test(arm))found.push('root');
-    if(!found.length){const pseudo=arm.match(/^:([\w-]+)\b/);if(pseudo&&!STANDARD_PSEUDOS.has(pseudo[1].toLowerCase())&&!/^theme-/i.test(pseudo[1]))found.push(pseudo[1])}
     const unique=[...new Set(found.filter(Boolean).map(id=>id.trim().toLowerCase()))];if(unique.length)unique.forEach(id=>info.push({id,selector:arm}));else info.push({id:null,selector:arm});
   });
   return info;
 }
 function mediaThemeInfo(header){
-  const match=header.match(/^@media\s*\([^)]*(?:prefers-color-scheme|color-scheme)\s*:\s*(dark|light)[^)]*\)/i);
-  return match?[{id:match[1].toLowerCase(),selector:header.trim()}]:[];
+  return[];/* prefers-color-scheme blocks are no longer read as themes */
 }
 async function cssBlocks(text,cancelled=()=>false){
   const roots=[],all=[],frames=[{parent:null,cursor:0,round:0,square:0}],stack=[];
@@ -638,19 +672,19 @@ async function buildData(items,{progress=()=>{},cancelled=()=>false}={}){
 let analysisTimer,analysisSequence=0;
 function queueAnalysis(){
   clearTimeout(analysisTimer);const sequence=++analysisSequence;
-  if(!sources.length){D=M=null;tierPlans.clear();tierEdits.clear();tierModes.clear();exemptions.clear();ccHistory=[];ccFolded=null;ccRestored=null;ccHydrated=false;ccUnmatchedExemptions=[];pendingFrozenHexes=[];renderResumeNote();$('#workspace').hidden=true;$('#workspace').removeAttribute('aria-busy');resetColorLab();return}
+  if(!sources.length){D=M=null;scopedTotalsCache=null;tierPlans.clear();tierEdits.clear();tierModes.clear();exemptions.clear();ccHistory=[];ccDbEntries=[];ccFolded=null;ccRestored=null;ccHydrated=false;ccUnmatchedExemptions=[];pendingFrozenHexes=[];renderResumeNote();$('#workspace').hidden=true;$('#workspace').removeAttribute('aria-busy');resetColorLab();return}
   const keptPairs=snapshotExemptionPairs();
   const keptFrozen=colorState.entries.filter(entry=>colorState.excluded.has(entry.key)).map(entry=>entry.hex);
-  ccHistory=sources.flatMap(source=>parseCcLog(source.content));ccFolded=foldCcEntries(ccHistory);
+  ccHistory=[...sources.flatMap(source=>parseCcLog(source.content)),...ccDbEntries];ccFolded=foldCcEntries(ccHistory);
   pendingFrozenHexes=[...new Set([...keptFrozen,...(!ccHydrated?(ccFolded.colors?.frozen||[]):[])])];
-  D=M=null;exemptions.clear();resetColorLab();$('#workspace').hidden=false;$('#source-summary').textContent='Reading stylesheet structure…';
+  D=M=null;scopedTotalsCache=null;exemptions.clear();resetColorLab();$('#workspace').hidden=false;$('#source-summary').textContent='Reading stylesheet structure…';
   $('#workspace').setAttribute('aria-busy','true');invalidateWorkbenches();scanColorLab();
   const snapshot=sources.map(source=>({...source}));
   analysisTimer=setTimeout(async()=>{
     try{
       const next=await buildData(snapshot,{cancelled:()=>sequence!==analysisSequence,progress:message=>{if(sequence===analysisSequence)$('#source-summary').textContent=message}});
       if(sequence!==analysisSequence||!next)return;
-      D=next;M=D.meta;hydrateCcState(keptPairs);hydrateReport();renderResumeNote();renderSources();$('#workspace').removeAttribute('aria-busy');markExportDirty();
+      D=next;M=D.meta;scopedTotalsCache=null;hydrateCcState(keptPairs);hydrateReport();renderResumeNote();renderSources();$('#workspace').removeAttribute('aria-busy');markExportDirty();
     }catch(error){if(sequence!==analysisSequence)return;$('#workspace').removeAttribute('aria-busy');$('#source-summary').textContent=`Analysis stopped · ${error.message}`}
   },20);
 }
@@ -782,11 +816,12 @@ function drawLadder(){
     divider.onpointerup=finishDrag;divider.onpointercancel=finishDrag;ladder.append(divider);
   });
 }
+function updateLadderTags(){$$('#ladder .divider .tag').forEach((tag,index)=>tag.textContent=names[index+1]||'tier')}
 function drawTiers(){
   const id=$('#paramsel').value,list=$('#tierlist'),text=$('#ptext').value||'Aa',unit=unitOf(id),edits=tierEdits.get(id)||{names:[],values:[]};tierEdits.set(id,edits);list.replaceChildren();
   bandsCache.forEach((band,index)=>{
     const suggested=repOf(band);if(!Number.isFinite(edits.values[index]))edits.values[index]=suggested;if(!edits.names[index])edits.names[index]=names[index]||`tier${index+1}`;names[index]=edits.names[index];
-    const target=edits.values[index],total=band.reduce((sum,v)=>sum+v.count,0),card=el('div','tiercard'),nameInput=el('input');nameInput.value=edits.names[index];nameInput.setAttribute('aria-label',`Tier ${index+1} name`);nameInput.oninput=()=>{edits.names[index]=nameInput.value;names[index]=nameInput.value;drawLadder();captureTierPlan()};
+    const target=edits.values[index],total=band.reduce((sum,v)=>sum+v.count,0),card=el('div','tiercard'),nameInput=el('input');nameInput.value=edits.names[index];nameInput.setAttribute('aria-label',`Tier ${index+1} name`);nameInput.oninput=()=>{edits.names[index]=nameInput.value;names[index]=nameInput.value;updateLadderTags();captureTierPlan()};
     const targetRow=el('label','target'),valueInput=el('input');valueInput.type='number';valueInput.step='any';valueInput.value=target;valueInput.setAttribute('aria-label',`${edits.names[index]} target value`);const unitLabel=el('span',null,unit||'number');targetRow.append(valueInput,unitLabel);
     const suggestion=el('button','suggestion',`Use suggestion: ${compactNumber(suggested)}${unit}`);suggestion.type='button';const detail=el('div','det');
     const sample=el('div','prev'),paintSample=()=>{const current=edits.values[index];sample.replaceChildren(preview(id,current,text));if(!band.length){detail.innerHTML='restored tier · no current source values · its token stays defined in the export';return}const currentWorst=Math.max(...band.map(v=>Math.abs(v.n-current)/(Math.abs(current)||1)*100));detail.innerHTML=`${band.length} source value${band.length===1?'':'s'} · ${total} declarations<br><span class="mono">${band[0].n}${unit} – ${band.at(-1).n}${unit}</span> · max change ${currentWorst.toFixed(0)}%`};paintSample();
@@ -815,7 +850,7 @@ function drawKnobs(){
 }
 function renderTier(recompute=false){if(!D||!PARAM_IDS.length)return;const id=$('#paramsel').value;if(recompute||!restoreTierPlan(id))solve(id);MODE=tierModes.get(id)||'mul';$('#f-add').setAttribute('aria-pressed',String(MODE==='add'));$('#f-mul').setAttribute('aria-pressed',String(MODE==='mul'));drawScopeNote();drawLadder();drawTiers();drawAside();drawFormula();drawKnobs()}
 
-$('#paramsel').onchange=()=>{names=['tiny','small','medium','large','huge','giant','colossal'];renderTier()};$('#fontsel').onchange=event=>{FONT=event.target.value;drawLadder();drawTiers()};$('#ptext').oninput=()=>{drawLadder();drawTiers()};
+$('#paramsel').onchange=()=>{names=['tiny','small','medium','large','huge','giant','colossal'];renderTier()};$('#fontsel').onchange=event=>{FONT=event.target.value;drawLadder();drawTiers()};$('#ptext').oninput=debounce(()=>{drawLadder();drawTiers()},150);
 $('#addtier').onclick=()=>{if(K<7){K++;renderTier(true)}};$('#deltier').onclick=()=>{if(K>2){K--;renderTier(true)}};
 $('#apply-tier').onclick=()=>{const plan=tierPlans.get($('#paramsel').value);if(!plan)return;plan.enabled=!plan.enabled;syncTierExportButton();rebuildExport()};
 $('#f-add').onclick=()=>{MODE='add';tierModes.set($('#paramsel').value,MODE);$('#f-add').setAttribute('aria-pressed','true');$('#f-mul').setAttribute('aria-pressed','false');drawFormula();drawKnobs();captureTierPlan()};$('#f-mul').onclick=()=>{MODE='mul';tierModes.set($('#paramsel').value,MODE);$('#f-mul').setAttribute('aria-pressed','true');$('#f-add').setAttribute('aria-pressed','false');drawFormula();drawKnobs();captureTierPlan()};
@@ -1033,8 +1068,74 @@ function extractCcScaleSections(text){
   return{text,defs};
 }
 
+/* ---------- object store client ---------- */
+function currentProject(){return $('#project-name').value.trim()||'workspace'}
+let ccDbEntries=[];
+async function ccdbImport(items){
+  const project=currentProject();
+  for(const item of items){
+    try{await fetch('/api/cc/import',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project,name:item.name,content:item.content})})}catch{return}
+  }
+  dirtyWorkbenches.add('obj');if(activeWorkbench()==='obj')renderWorkbench('obj');renderResumeChips();
+}
+function ccdbRecordDecisions(){
+  if(!D)return;const project=currentProject();
+  const post=(kind,payload)=>{try{fetch('/api/cc/decision',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project,kind,payload})})}catch{}};
+  [...tierPlans.values()].filter(plan=>plan.enabled&&plan.bands.length).forEach(plan=>post('export-param',ccPayloadForPlan(plan)));
+  const colors=changedColorRows(),frozen=colorState.entries.filter(entry=>colorState.excluded.has(entry.key)).map(entry=>entry.hex).sort();
+  if(colors.length||frozen.length)post('export-colors',{kind:'colors',mode:colorState.mode,changed:colors.length,frozen});
+}
+async function renderResumeChips(){
+  const host=$('#resume-row');if(!host)return;
+  let data;try{data=await(await fetch('/api/cc/projects')).json()}catch{return}
+  host.replaceChildren();
+  const projects=(data.projects||[]).filter(project=>project.files);if(!projects.length)return;
+  host.append(el('span',null,'Object store:'));
+  projects.forEach(project=>{
+    const chip=el('button','scope-chip',`${project.name} · ${project.files} file${project.files===1?'':'s'}${project.decisions?` · ${project.decisions} decision${project.decisions===1?'':'s'}`:''}`);
+    chip.type='button';chip.onclick=()=>resumeProject(project.name);host.append(chip);
+  });
+}
+async function resumeProject(name){
+  let data;try{data=await(await fetch(`/api/cc/resume?project=${encodeURIComponent(name)}`)).json()}catch{return}
+  if(!data?.sources?.length)return;
+  $('#project-name').value=name;
+  ccDbEntries=(data.decisions||[]).map(decision=>ccEntryFrom((decision.createdAt||'').slice(0,10)||isoDate(),`db · ${decision.kind}`,decision.payload,`${(decision.createdAt||'').slice(0,10)}: db ${decision.kind} ${JSON.stringify(decision.payload)}`));
+  sources.length=0;data.sources.forEach(source=>sources.push({id:++sourceId,name:source.name,content:source.content}));
+  renderSources();queueAnalysis();
+}
+async function drawObjects(){
+  const table=$('#objtbl'),stat=$('#objstat');if(!table)return;
+  let data;try{data=await(await fetch(`/api/cc/entities?project=${encodeURIComponent(currentProject())}&q=${encodeURIComponent($('#objfilter').value.trim())}`)).json()}catch{table.innerHTML='';stat.textContent='Object store offline — restart the local app.';return}
+  stat.textContent=`${data.total} entit${data.total===1?'y':'ies'} · showing ${data.shown} · most-merged first`;
+  table.innerHTML='<thead><tr><th>entity</th><th>context</th><th>blocks merged</th><th>props</th><th>overridden</th></tr></thead>';
+  const body=el('tbody');
+  (data.entities||[]).forEach(entity=>{
+    const overridden=entity.props.filter(prop=>prop.overridden).length,row=el('tr');
+    row.innerHTML=`<td class="mono">${escapeHtml(entity.selector)}</td><td class="mono">${escapeHtml(entity.context||'—')}</td><td class="mono">${entity.blocks}</td><td class="mono">${entity.props.length-overridden}</td><td class="mono"${overridden?' style="color:var(--yellow)"':''}>${overridden}</td>`;
+    row.style.cursor='pointer';row.onclick=()=>openEntityDrawer(entity);body.append(row);
+  });
+  if(!data.entities?.length){const row=el('tr'),cell=el('td',null,'Nothing in the store for this project yet.');cell.colSpan=5;row.append(cell);body.append(row)}
+  table.append(body);
+}
+function openEntityDrawer(entity){
+  $('#dtitle').textContent=entity.selector;$('#dsub').textContent=`${entity.context||'top level'} · ${entity.blocks} source block${entity.blocks===1?'':'s'} consolidated`;
+  const body=$('#dbody');body.replaceChildren();
+  entity.props.forEach(prop=>{
+    const row=el('div','selrow'+(prop.overridden?' is-exempt':''));
+    row.append(el('div','s',`${prop.property}: ${prop.value}`));
+    const meta=el('div','m');meta.innerHTML=`${prop.overridden?'overridden':'<b>current</b>'} · ${escapeHtml(prop.source_name)}:${prop.line}`;row.append(meta);body.append(row);
+  });
+  $('#drawer').classList.add('on');$('#scrim').classList.add('on');
+}
+$('#objfilter').addEventListener('input',debounce(()=>{dirtyWorkbenches.add('obj');if(activeWorkbench()==='obj')drawObjects()},240));
+$('#obj-download').onclick=async()=>{
+  let text;try{const response=await fetch(`/api/cc/export?project=${encodeURIComponent(currentProject())}`);if(!response.ok)throw new Error();text=await response.text()}catch{$('#objstat').textContent='Nothing to export for this project yet.';return}
+  const blob=new Blob([text],{type:'text/css;charset=utf-8'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;link.download=`${currentProject()}.objects.css`;link.click();URL.revokeObjectURL(url);
+};
+
 /* ---------- one export result shared by every workbench ---------- */
-const exportState={result:null,dirty:true,building:false,revision:0,promise:null};let exportBuildTimer=null;
+const exportState={result:null,dirty:true,building:false,revision:0,promise:null};
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const escapeRegExp=value=>String(value).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const tokenSlug=value=>String(value).toLowerCase().trim().replace(/[^a-z0-9-]+/g,'-').replace(/^-+|-+$/g,'')||'tier';
@@ -1054,7 +1155,7 @@ async function rewriteDeclarations(text,byProperty){
     if(!patterns.has(rawMap)){const alternatives=[...rawMap.keys()].sort((a,b)=>b.length-a.length).map(escapeRegExp).join('|');patterns.set(rawMap,new RegExp('(^|[^A-Za-z0-9_.%+-])('+alternatives+')(?![A-Za-z0-9_.%])','gi'))}
     return patterns.get(rawMap);
   };
-  const edits=[];
+  const edits=[];let work=0;
   for(const block of parsed.all){
     if(block.header.startsWith('@'))continue;
     for(const partInfo of directBlockParts(blanked,block)){
@@ -1068,6 +1169,7 @@ async function rewriteDeclarations(text,byProperty){
         edits.push({start:valueStart+rawStart,end:valueStart+rawStart+raw.length,replacement:rawMap.get(raw.toLowerCase())});
       }
     }
+    if(++work%400===0)await yieldToBrowser();
   }
   if(!edits.length)return text;
   edits.sort((a,b)=>a.start-b.start);
@@ -1101,13 +1203,6 @@ async function applyTierPlans(content){
   if(!block&&!scaleSection)return content;
   return[block,scaleSection,body].filter(Boolean).join('\n\n');
 }
-function highlightedExport(content){
-  const clipped=content.slice(0,200000);let html=escapeHtml(clipped);
-  html=html.replace(/var\(--cc-[^)]+\)/g,value=>`<mark>${value}</mark>`);
-  const changedColors=colorState?.mapping?[...new Set(colorState.entries.filter(entry=>colorState.mapping[entry.key]&&colorState.mapping[entry.key]!==entry.hex).map(entry=>colorState.mapping[entry.key]))]:[];
-  if(changedColors.length){const pattern=new RegExp(`(${changedColors.sort((a,b)=>b.length-a.length).map(escapeRegExp).join('|')})`,'gi');html=html.replace(pattern,'<mark class="color-change">$1</mark>')}
-  return{html,truncated:content.length>clipped.length};
-}
 function activeExemptionIds(plans){
   const active=new Set();plans.forEach(plan=>D.params[plan.id]?.values.forEach(value=>value.sel.forEach(instance=>{if(exemptions.has(instance.id))active.add(instance.id)})));return active;
 }
@@ -1131,18 +1226,18 @@ function refreshStagedCount(){
 function setExportStatus(text,state=''){
   const status=$('#export-status');status.textContent=text;if(state)status.dataset.state=state;else delete status.dataset.state;
 }
+const scheduleStagedRender=debounce(()=>{if(!D)return;const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows();renderStagedChanges(plans,colors,activeExemptionIds(plans))},300);
 function markExportDirty(){
   exportState.revision++;exportState.dirty=true;exportState.result=null;refreshStagedCount();
   const preview=$('#export-preview'),copy=$('#export-copy'),download=$('#export-download');
-  if(!sources.length){preview.textContent='';preview.dataset.placeholder='Add a stylesheet to prepare an export preview.';setExportStatus('WAITING FOR SOURCE');copy.disabled=true;download.disabled=true;renderStagedChanges();$('.export-shell').classList.remove('is-stale');return}
+  if(!sources.length){scheduleStagedRender.cancel();preview.textContent='';preview.dataset.placeholder='Add a stylesheet to enable the export.';setExportStatus('WAITING FOR SOURCE');copy.disabled=true;download.disabled=true;renderStagedChanges();$('.export-shell').classList.remove('is-stale');return}
   if(!D){preview.dataset.placeholder='The shared source analysis is still running.';setExportStatus('ANALYZING SOURCE','building');copy.disabled=true;download.disabled=true;$('.export-shell').classList.add('is-stale');return}
-  preview.dataset.placeholder='The preview will be prepared when this section comes into view.';setExportStatus('CHANGES PENDING','pending');copy.disabled=false;download.disabled=false;$('.export-shell').classList.add('is-stale');
-  const bounds=$('.export-shell').getBoundingClientRect();if(D&&!$('#workspace').hidden&&bounds.height&&bounds.top<innerHeight+180){clearTimeout(exportBuildTimer);exportBuildTimer=setTimeout(materializeExport,320)}
+  preview.dataset.placeholder='The export is built when you press Copy or Download; no preview is rendered.';setExportStatus('CHANGES PENDING','pending');copy.disabled=false;download.disabled=false;$('.export-shell').classList.add('is-stale');scheduleStagedRender();
 }
 function rebuildExport(){markExportDirty()}
 async function materializeExport(){
   if(!sources.length)return null;if(!D){setExportStatus('ANALYZING SOURCE','building');return null}if(!exportState.dirty&&exportState.result!=null)return exportState.result;if(exportState.building)return exportState.promise;
-  let revision=null;exportState.building=true;setExportStatus('BUILDING EXPORT…','building');$('#export-preview').setAttribute('aria-busy','true');
+  let revision=null;exportState.building=true;setExportStatus('BUILDING EXPORT…','building');
   exportState.promise=(async()=>{
     try{
       if(colorState.scanPromise)await colorState.scanPromise;
@@ -1153,38 +1248,37 @@ async function materializeExport(){
       let base=combinedStylesheets();
       if(colorState.documentId&&colorState.mapping&&changedColorRows().length){const data=await api(`/api/documents/${colorState.documentId}/export`,{mapping:colorState.mapping});base=data.result}
       if(revision!==exportState.revision)return null;
-      const result=await applyTierPlans(base);if(revision!==exportState.revision)return null;const rendered=highlightedExport(result);exportState.result=result;exportState.dirty=false;
-      const preview=$('#export-preview');preview.innerHTML=rendered.html;preview.removeAttribute('aria-busy');$('.export-shell').classList.remove('is-stale');
+      const result=await applyTierPlans(base);if(revision!==exportState.revision)return null;exportState.result=result;exportState.dirty=false;
+      $('.export-shell').classList.remove('is-stale');
       const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows(),activeExemptions=activeExemptionIds(plans);renderStagedChanges(plans,colors,activeExemptions);
       setExportStatus(`${plans.length} SCALE${plans.length===1?'':'S'} · ${activeExemptions.size} EXEMPT · ${colors.length} COLORS CHANGED`);
       const ccNote=ccLastBlockInfo?.total?` · CC log: ${ccLastBlockInfo.total} entr${ccLastBlockInfo.total===1?'y':'ies'}${ccLastBlockInfo.fresh?` (${ccLastBlockInfo.fresh} new)`:''}`:'';
-      $('#export-note').textContent=`${sources.length} source stylesheet${sources.length===1?'':'s'} combined into one CSS file${ccNote}${rendered.truncated?' · preview limited to 200,000 characters':''}. Originals stay untouched.`;
+      $('#export-note').textContent=`${sources.length} source stylesheet${sources.length===1?'':'s'} combined into one CSS file · ${fmt(result.length)} characters${ccNote}. Originals stay untouched.`;
       return result;
     }catch(error){showLabError(error.message);setExportStatus('EXPORT NEEDS ATTENTION','pending');return null}
-    finally{exportState.building=false;exportState.promise=null;$('#export-preview').removeAttribute('aria-busy');if(revision!==null&&revision!==exportState.revision){setExportStatus('CHANGES PENDING','pending');clearTimeout(exportBuildTimer);exportBuildTimer=setTimeout(materializeExport,0)}}
+    finally{exportState.building=false;exportState.promise=null;if(revision!==null&&revision!==exportState.revision)setExportStatus('CHANGES PENDING','pending')}
   })();
   return exportState.promise;
 }
 async function latestExport(){let result=null;for(let attempt=0;attempt<2&&result==null;attempt++)result=await materializeExport();return result}
 async function copyExport(button){
-  const result=await latestExport();if(result==null)return;try{await navigator.clipboard.writeText(result);const original=button.textContent;button.textContent='Copied ✓';setTimeout(()=>button.textContent=original,1800)}catch{showLabError('The browser blocked clipboard access. Use Download CSS instead.')}
+  const result=await latestExport();if(result==null)return;ccdbRecordDecisions();try{await navigator.clipboard.writeText(result);const original=button.textContent;button.textContent='Copied ✓';setTimeout(()=>button.textContent=original,1800)}catch{showLabError('The browser blocked clipboard access. Use Download CSS instead.')}
 }
 async function downloadExport(){
-  const result=await latestExport();if(result==null)return;const blob=new Blob([result],{type:'text/css;charset=utf-8'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;
+  const result=await latestExport();if(result==null)return;ccdbRecordDecisions();const blob=new Blob([result],{type:'text/css;charset=utf-8'}),url=URL.createObjectURL(blob),link=el('a');link.href=url;
   if(sources.length===1){const name=sources[0].name.replace(/\.[^.]+$/,'');link.download=`${name}.consolidated.css`}else link.download='consolidated.css';
   link.click();URL.revokeObjectURL(url);
 }
 $('#export-copy').onclick=event=>copyExport(event.currentTarget);$('#export-download').onclick=downloadExport;
-$('#jump-export').onclick=()=>{materializeExport();$('#export-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})};
-$('#jump-staged').onclick=()=>{materializeExport();$('#staged-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})};
-new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))materializeExport()},{rootMargin:'180px'}).observe($('.export-shell'));
+$('#jump-export').onclick=()=>{$('#export-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})};
+$('#jump-staged').onclick=()=>{$('#staged-title').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})};
 
 /* ---------- Chromap color engine + imported Cards / Ordered / Sphere views ---------- */
 const colorState={
   documentId:null,entries:[],mapping:null,result:null,scanPromise:null,mapPromise:null,mappingDirty:false,mode:'original',view:'cards',excluded:new Set(),themeTable:null,
   simplify:{drift:0,deviation:0},align:{colors:['#2f6bdf','#e2593a','#58a66b','#d6a33d'],enabled:[true,false,false,false],direction:'warmer',threshold:40},
   shuffle:{variant:'permute',seed:1,drift:0,deviation:0},theme:{id:'nord',customColors:['#17233f','#365486','#7fc7d9','#dcf2f1','#d67b5b','#d6a84b'],drift:0,deviation:0},
-  adjust:{hue:0,saturation:100,brightness:100,contrast:100,sepia:0}
+  adjust:{hue:0,saturation:100,brightness:100,contrast:100,sepia:0},invert:false
 };
 const ADJUST_FIELDS={hue:{label:'Hue rotate',min:-180,max:180,step:1,unit:'°'},saturation:{label:'Saturation',min:0,max:200,step:5,unit:'%'},brightness:{label:'Brightness',min:0,max:200,step:5,unit:'%'},contrast:{label:'Contrast',min:0,max:200,step:5,unit:'%'},sepia:{label:'Sepia',min:0,max:100,step:5,unit:'%'}};
 let colorMeta=null,orderedView=null,sphereView=null,transformSequence=0,scanSequence=0,mapAbortController=null,scanAbortController=null;
@@ -1199,7 +1293,7 @@ function combinedStylesheets(){return sources.map(source=>`/* ===== ${source.nam
 function resetColorLab(){
   transformSequence++;scanSequence++;scheduleTransform.cancel();mapAbortController?.abort();scanAbortController?.abort();mapAbortController=scanAbortController=null;
   colorCardLimit=300;familyRenderLimit=200;crossRenderLimit=500;colorState.documentId=null;colorState.entries=[];colorState.mapping=null;colorState.result=null;colorState.scanPromise=null;colorState.mapPromise=null;colorState.mappingDirty=false;colorState.excluded.clear();colorState.themeTable=null;
-  $('#lab-status').textContent='WAITING FOR CSS';$('#lab-empty').textContent='Add a stylesheet above to build its color map.';$('#lab-empty').hidden=false;$('#color-cards').hidden=true;$('#color-cards').replaceChildren();$('#copy-result').disabled=true;$('#download-result').disabled=true;showLabError('');syncColorViews();rebuildExport();
+  $('#lab-status').textContent='WAITING FOR CSS';$('#lab-empty').textContent='Add a stylesheet above to build its color map.';$('#lab-empty').hidden=false;$('#color-cards').hidden=true;$('#color-cards').replaceChildren();colorCardRefs.clear();colorCardOrderKey='';$('#copy-result').disabled=true;$('#download-result').disabled=true;showLabError('');syncColorViews();rebuildExport();
 }
 async function scanColorLab(){
   const content=combinedStylesheets(),sequence=++scanSequence;if(!content){resetColorLab();return}
@@ -1211,8 +1305,13 @@ async function scanColorLab(){
   if(!colorState.entries.length){$('#lab-status').textContent='0 COLORS';$('#lab-empty').textContent='No color literals were found in the loaded stylesheets.';$('#lab-empty').hidden=false;syncColorViews();rebuildExport();return}
   $('#lab-empty').hidden=true;invalidateColorViews();runTransform();
 }
+function scopedColorTotals(){
+  const sig=[...scopeFilter.selected].sort().join(' ');
+  if(scopedTotalsCache?.sig!==sig)scopedTotalsCache={sig,totals:new Map(familiesForVisibleScopes().map(family=>[family.hex.toLowerCase(),family.total]))};
+  return scopedTotalsCache.totals;
+}
 function visibleColorEntries(){
-  if(!D)return[];if(scopeFilter.all)return colorState.entries.map(entry=>({...entry,visibleCount:entry.count}));const totals=new Map(familiesForVisibleScopes().map(family=>[family.hex.toLowerCase(),family.total]));return colorState.entries.map(entry=>({...entry,visibleCount:totals.get(entry.hex.toLowerCase())||0})).filter(entry=>entry.visibleCount);
+  if(!D)return[];if(scopeFilter.all)return colorState.entries.map(entry=>({...entry,visibleCount:entry.count}));const totals=scopedColorTotals();return colorState.entries.map(entry=>({...entry,visibleCount:totals.get(entry.hex.toLowerCase())||0})).filter(entry=>entry.visibleCount);
 }
 function colorRows(entries=visibleColorEntries(),limit=600){
   return entries.slice(0,limit).map(entry=>{const frozen=colorState.excluded.has(entry.key),to=!frozen&&colorState.mapping?colorState.mapping[entry.key]:null;return{key:entry.key,fromHex:entry.hex,toHex:to||entry.hex,count:entry.visibleCount,label:entry.literals?.[0]?.text||entry.hex,excluded:frozen||!to}});
@@ -1232,15 +1331,33 @@ function syncColorViews(){
   if(sphereView)sphereView.setActive(hasVisible&&colorState.view==='sphere'&&screenActive);
 }
 function colorFormat(entry){const formats=[...new Set((entry.literals||[]).map(literal=>(literal.format||'color').toUpperCase()))];return formats.slice(0,2).join('+')+(formats.length>2?'+':'')}
+/* Cards rebuild only when the visible set changes; a remap just repaints each
+   card's dynamic bits, so slider drags don't reconstruct ~4,000 DOM nodes. */
+const colorCardRefs=new Map();let colorCardOrderKey='';
+function patchColorCard(refs,entry){
+  const frozen=colorState.excluded.has(entry.key),to=!frozen&&colorState.mapping?colorState.mapping[entry.key]:null,changed=Boolean(to&&to!==entry.hex);
+  refs.card.classList.toggle('off',frozen);
+  refs.next.hidden=!changed;if(changed)refs.next.style.background=to;
+  refs.arrow.hidden=!to;refs.toCode.hidden=!to;if(to)refs.toCode.textContent=to;
+  refs.count.textContent=`×${entry.visibleCount} · ${colorFormat(entry)}`;
+  refs.check.checked=!frozen;
+}
 function renderColorCards(entries=visibleColorEntries()){
-  const grid=$('#color-cards');grid.replaceChildren();
-  entries.slice(0,colorCardLimit).forEach(entry=>{
-    const frozen=colorState.excluded.has(entry.key),to=!frozen&&colorState.mapping?colorState.mapping[entry.key]:null,card=el('article','color-card'+(frozen?' off':'')),chips=el('div','color-card__chips'),old=el('i');old.style.background=entry.hex;chips.append(old);
-    if(to&&to!==entry.hex){const next=el('i');next.style.background=to;chips.append(next)}
-    const body=el('div','color-card__body'),value=el('div','color-card__value');value.append(el('code',null,entry.literals?.[0]?.text||entry.hex));if(to){value.append(el('b',null,'→'),el('code',null,to))}
-    const meta=el('div','color-card__meta'),label=el('label'),check=el('input');check.type='checkbox';check.checked=!frozen;check.setAttribute('aria-label',`Remap ${entry.hex}`);check.onchange=()=>{if(check.checked)colorState.excluded.delete(entry.key);else colorState.excluded.add(entry.key);requestTransform()};label.append(check,document.createTextNode(' remap'));meta.append(el('span',null,`×${entry.visibleCount} · ${colorFormat(entry)}`),label);body.append(value,meta);card.append(chips,body);grid.append(card);
-  });
-  if(entries.length>colorCardLimit){const more=el('button','btn',`Show ${Math.min(300,entries.length-colorCardLimit)} more colors`);more.type='button';more.onclick=()=>{colorCardLimit+=300;renderColorCards(entries)};grid.append(more)}
+  const grid=$('#color-cards'),shown=entries.slice(0,colorCardLimit);
+  const orderKey=shown.map(entry=>entry.key).join(' ')+' '+(entries.length>colorCardLimit);
+  if(orderKey!==colorCardOrderKey){
+    colorCardOrderKey=orderKey;colorCardRefs.clear();grid.replaceChildren();
+    shown.forEach(entry=>{
+      const card=el('article','color-card'),chips=el('div','color-card__chips'),old=el('i'),next=el('i');old.style.background=entry.hex;next.hidden=true;chips.append(old,next);
+      const body=el('div','color-card__body'),value=el('div','color-card__value'),arrow=el('b',null,'→'),toCode=el('code');arrow.hidden=true;toCode.hidden=true;value.append(el('code',null,entry.literals?.[0]?.text||entry.hex),arrow,toCode);
+      const meta=el('div','color-card__meta'),count=el('span'),label=el('label'),check=el('input');check.type='checkbox';check.setAttribute('aria-label',`Remap ${entry.hex}`);
+      const refs={card,next,arrow,toCode,count,check};colorCardRefs.set(entry.key,refs);
+      check.onchange=()=>{if(check.checked)colorState.excluded.delete(entry.key);else colorState.excluded.add(entry.key);patchColorCard(refs,entry);requestTransform()};
+      label.append(check,document.createTextNode(' remap'));meta.append(count,label);body.append(value,meta);card.append(chips,body);grid.append(card);
+    });
+    if(entries.length>colorCardLimit){const more=el('button','btn',`Show ${Math.min(300,entries.length-colorCardLimit)} more colors`);more.type='button';more.onclick=()=>{colorCardLimit+=300;renderColorCards(entries)};grid.append(more)}
+  }
+  shown.forEach(entry=>{const refs=colorCardRefs.get(entry.key);if(refs)patchColorCard(refs,entry)});
 }
 function modeParams(){
   if(colorState.mode==='original')return{};
@@ -1252,7 +1369,7 @@ function modeParams(){
   }
   return{};
 }
-function buildColorParams(){return{...modeParams(),adjust:{...colorState.adjust}}}
+function buildColorParams(){return{...modeParams(),adjust:{...colorState.adjust},invert:colorState.invert}}
 const scheduleTransform=debounce(runTransform,220);
 function requestTransform(){transformSequence++;mapAbortController?.abort();colorState.mappingDirty=true;markExportDirty();scheduleTransform()}
 async function runTransform(){
@@ -1277,6 +1394,7 @@ async function loadColorMeta(){
 function installColorControls(){
   const anchors=$('#anchor-grid');colorState.align.colors.forEach((color,index)=>{const label=el('label','anchor'),check=el('input'),picker=el('input');check.type='checkbox';check.checked=colorState.align.enabled[index];check.disabled=index===0;picker.type='color';picker.value=color;check.onchange=()=>{colorState.align.enabled[index]=check.checked;requestTransform()};picker.oninput=()=>{colorState.align.colors[index]=picker.value;requestTransform()};label.append(check,picker,document.createTextNode(String(index+1)));anchors.append(label)});
   const adjust=$('#adjust-fields');Object.entries(ADJUST_FIELDS).forEach(([key,def])=>{const field=el('div','field'),label=el('label'),output=el('output');output.id=`adjust-${key}-out`;output.textContent=colorState.adjust[key]+def.unit;label.append(document.createTextNode(def.label),output);const input=el('input');input.type='range';input.id=`adjust-${key}`;input.min=def.min;input.max=def.max;input.step=def.step;input.value=colorState.adjust[key];input.oninput=()=>{colorState.adjust[key]=+input.value;output.textContent=input.value+def.unit;requestTransform()};field.append(label,input);adjust.append(field)});
+  $('#adjust-invert').onchange=event=>{colorState.invert=event.target.checked;requestTransform()};
   $$('input[name="color-mode"]').forEach(input=>input.onchange=()=>{colorState.mode=input.value;$$('.mode-panel').forEach(panel=>panel.hidden=panel.dataset.mode!==colorState.mode);colorState.themeTable=null;paintThemeStrip();requestTransform()});
   $$('input[name="color-view"]').forEach(input=>input.onchange=()=>{colorState.view=input.value;syncColorViews()});
   const bindRange=(id,object,key,unit='%')=>{$(`#${id}`).oninput=event=>{object[key]=+event.target.value;$(`#${id}-out`).textContent=event.target.value+unit;requestTransform()}};
@@ -1285,7 +1403,7 @@ function installColorControls(){
   $$('input[name="shuffle-variant"]').forEach(input=>input.onchange=()=>{colorState.shuffle.variant=input.value;colorState.shuffle.seed++;requestTransform()});$('#reshuffle').onclick=()=>{colorState.shuffle.seed++;requestTransform()};
   $('#theme-preset').onchange=event=>{colorState.theme.id=event.target.value;colorState.themeTable=null;$('#custom-theme-wrap').hidden=colorState.theme.id!=='custom';paintThemeStrip();requestTransform()};
   $('#custom-theme').oninput=debounce(event=>{const colors=event.target.value.match(/#[0-9a-f]{6}\b/gi)||[];if(colors.length>=2){colorState.theme.customColors=colors.slice(0,64);colorState.themeTable=null;paintThemeStrip();if(colorState.theme.id==='custom')requestTransform()}},180);
-  $('#adjust-reset').onclick=()=>{Object.assign(colorState.adjust,{hue:0,saturation:100,brightness:100,contrast:100,sepia:0});Object.entries(ADJUST_FIELDS).forEach(([key,def])=>{$(`#adjust-${key}`).value=colorState.adjust[key];$(`#adjust-${key}-out`).textContent=colorState.adjust[key]+def.unit});requestTransform()};
+  $('#adjust-reset').onclick=()=>{Object.assign(colorState.adjust,{hue:0,saturation:100,brightness:100,contrast:100,sepia:0});colorState.invert=false;$('#adjust-invert').checked=false;Object.entries(ADJUST_FIELDS).forEach(([key,def])=>{$(`#adjust-${key}`).value=colorState.adjust[key];$(`#adjust-${key}-out`).textContent=colorState.adjust[key]+def.unit});requestTransform()};
   $('#copy-result').onclick=event=>copyExport(event.currentTarget);
   $('#download-result').onclick=downloadExport;
 }
@@ -1293,7 +1411,7 @@ function installColorControls(){
 installColorControls();loadColorMeta();
 if(typeof createOrderedView==='function')orderedView=createOrderedView({body:$('#ord-body'),fromCol:$('#ord-from'),toCol:$('#ord-to'),svg:$('#ord-links')});
 if(typeof createSphereView==='function')sphereView=createSphereView({canvas:$('#orb-canvas'),scrub:$('#orb-t'),scrubOut:$('#orb-t-out'),replay:$('#orb-replay'),spinToggle:$('#orb-spin')});
-renderSources();resetColorLab();
+renderSources();resetColorLab();renderResumeChips();
 </script>
 </body>
 </html>

@@ -6,6 +6,7 @@ from threading import Lock
 
 from flask import Flask, jsonify, request, send_from_directory
 
+import ccstore
 import colorlib
 from palettes import THEME_LABELS, THEMES, SIMPLIFY_60
 
@@ -187,6 +188,57 @@ def transform():
                     "previewHtml": preview_html,
                     "previewTruncated": truncated,
                     "themeTable": info.get("themeTable")})
+
+
+@app.get("/api/cc/projects")
+def cc_projects():
+    return jsonify({"projects": ccstore.list_projects()})
+
+
+@app.post("/api/cc/import")
+def cc_import():
+    data, err = _content_or_error()
+    if err:
+        return err
+    project = (data.get("project") or "workspace").strip() or "workspace"
+    name = (data.get("name") or "pasted.css").strip() or "pasted.css"
+    return jsonify(ccstore.import_stylesheet(project, name, data["content"]))
+
+
+@app.get("/api/cc/entities")
+def cc_entities():
+    project = (request.args.get("project") or "").strip()
+    query = (request.args.get("q") or "").strip()
+    return jsonify(ccstore.entities(project, query))
+
+
+@app.get("/api/cc/resume")
+def cc_resume():
+    project = (request.args.get("project") or "").strip()
+    data = ccstore.resume(project)
+    if data is None:
+        return jsonify({"error": "No project with that name."}), 404
+    return jsonify(data)
+
+
+@app.post("/api/cc/decision")
+def cc_decision():
+    data = request.get_json(silent=True) or {}
+    project = (data.get("project") or "workspace").strip() or "workspace"
+    kind = str(data.get("kind") or "note")
+    payload = data.get("payload")
+    if not isinstance(payload, (dict, list)):
+        return jsonify({"error": "Decision payload must be JSON."}), 400
+    return jsonify(ccstore.record_decision(project, kind, payload))
+
+
+@app.get("/api/cc/export")
+def cc_export():
+    project = (request.args.get("project") or "").strip()
+    css = ccstore.emit_css(project)
+    if css is None:
+        return jsonify({"error": "No project with that name."}), 404
+    return app.response_class(css, mimetype="text/css")
 
 
 if __name__ == "__main__":

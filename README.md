@@ -130,9 +130,10 @@ The color API caches up to four recent imported documents in local memory:
 - `GET /api/meta` → palettes
 
 Interactive controls never request a complete rewrite. The final stylesheet is
-materialized only when its preview, Copy, or Download action needs it. The
-original source still lives in the browser tab; the server cache disappears
-when the local app stops.
+materialized only when Copy or Download asks for it — no text preview is
+rendered, and adjustments just mark the export stale. The original source
+still lives in the browser tab; the server cache disappears when the local
+app stops.
 
 The earlier `/api/scan` and `/api/transform` routes remain available for the
 standalone Chromap interface.

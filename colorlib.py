@@ -328,12 +328,20 @@ def adjust_params(params):
     return out
 
 
+def invert_param(params):
+    """Read the final-pass inversion toggle without accepting truthy strings."""
+    value = params.get("invert", False)
+    if not isinstance(value, bool):
+        raise ValueError("invert must be true or false")
+    return value
+
+
 def is_neutral_adjust(adjust):
     return all(adjust[f] == default
                for f, (default, _lo, _hi) in ADJUST_FIELDS.items())
 
 
-def adjust_table(table, adjust):
+def adjust_table(table, adjust, invert=False):
     """Bake the sliders into a run of RGB values.
 
     Order is hue-rotate, saturate, sepia, then brightness and contrast --
@@ -342,7 +350,7 @@ def adjust_table(table, adjust):
     nothing clamps until the very end, so a channel that overshoots
     mid-chain can still come back instead of clipping early.
     """
-    if is_neutral_adjust(adjust):
+    if is_neutral_adjust(adjust) and not invert:
         return list(table)
 
     m = _hue_rotate_matrix(adjust["hue"])
@@ -357,6 +365,8 @@ def adjust_table(table, adjust):
         for i in range(3):
             v = (m[i][0] * rgb[0] + m[i][1] * rgb[1] + m[i][2] * rgb[2]) * gain
             channels.append(_clamp(round((v - _MID) * slope + _MID)))
+        if invert:
+            channels = [255 - channel for channel in channels]
         out.append(tuple(channels))
     return out
 
@@ -388,7 +398,8 @@ def resolve_theme_table(params):
 
 def theme_preview_table(params):
     """The theme table as the rail strip should show it: resolved + adjusted."""
-    return adjust_table(resolve_theme_table(params), adjust_params(params))
+    return adjust_table(
+        resolve_theme_table(params), adjust_params(params), invert_param(params))
 
 
 def _diversify(original, target, drift, deviation):
@@ -525,7 +536,8 @@ def build_mapping(entries, mode, params, excluded=()):
     # the source color, so a brightness applied to its anchors would vanish.
     # Excluded keys never enter `mapping`, so frozen colors stay untouched.
     keys_out = list(mapping)
-    adjusted = adjust_table([mapping[k] for k in keys_out], adjust_params(params))
+    adjusted = adjust_table(
+        [mapping[k] for k in keys_out], adjust_params(params), invert_param(params))
     return dict(zip(keys_out, adjusted))
 
 
