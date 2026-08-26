@@ -195,6 +195,24 @@ def cc_projects():
     return jsonify({"projects": ccstore.list_projects()})
 
 
+@app.get("/api/cc/database")
+def cc_database():
+    return jsonify(ccstore.database_overview())
+
+
+@app.delete("/api/cc/projects/<path:name>")
+def cc_delete_project(name):
+    data = request.get_json(silent=True) or {}
+    if data.get("confirm") != name:
+        return jsonify({
+            "error": "Deletion was not confirmed for this project."
+        }), 400
+    counts = ccstore.delete_project(name)
+    if counts is None:
+        return jsonify({"error": "No project with that name."}), 404
+    return jsonify({"ok": True, "deleted": counts})
+
+
 @app.post("/api/cc/import")
 def cc_import():
     data, err = _content_or_error()

@@ -65,6 +65,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .source-resume{position:absolute;left:clamp(24px,3.5vw,58px);right:clamp(24px,3.5vw,58px);margin-top:192px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.72rem}
 .project-box{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--muted);font:600 .68rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
 .project-box input{background:var(--surface-2);border:1px solid var(--line);color:var(--mint);border-radius:6px;padding:5px 10px;min-height:0;width:11rem;font:600 .8rem var(--font-mono)}
+.db-open{margin-left:10px;appearance:none;border:1px solid var(--line-2);background:#11151a;color:var(--ink-2);border-radius:6px;min-height:34px;padding:6px 11px;cursor:pointer;font:600 .68rem var(--font-mono);letter-spacing:.07em;text-transform:uppercase}
+.db-open:hover{border-color:var(--mint);color:var(--mint)}
 
 /* workspace chrome */
 .workspace{background:linear-gradient(180deg,#0c0f13,#07090c 38rem);min-height:760px;border-top:1px solid #0f1319}
@@ -139,6 +141,7 @@ input[type=range]{accent-color:var(--mint);min-width:150px}
 .chip.wide{flex-direction:row;align-items:baseline;gap:7px}.chip .n,.chip .v{font:.64rem var(--font-mono);color:var(--muted)}
 .swatch{width:38px;height:38px;border:1px solid #ffffff2b;border-radius:4px;background-image:linear-gradient(45deg,#30343a 25%,transparent 25%,transparent 75%,#30343a 75%),linear-gradient(45deg,#30343a 25%,transparent 25%,transparent 75%,#30343a 75%);background-size:8px 8px;background-position:0 0,4px 4px}.swatch i{display:block;width:100%;height:100%;border-radius:3px}
 .tbl{width:100%;border-collapse:collapse;font-size:.78rem}.tbl th{text-align:left;color:var(--muted);font-size:.67rem;text-transform:uppercase;letter-spacing:.07em;padding:8px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface)}.tbl td{padding:8px;border-bottom:1px solid #29303d88}.tbl tr:hover td{background:#ffffff05}.bar{height:7px;background:var(--line);border-radius:3px;overflow:hidden;min-width:70px}.bar i{display:block;height:100%;background:#ffc66e}
+.tokenize-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;margin-bottom:24px}.tokenize-head .lede{margin:0}.tokenize-list{border-top:1px solid var(--line-2)}.tokenize-row{display:grid;grid-template-columns:minmax(180px,1fr) minmax(120px,.55fr) minmax(150px,.7fr) auto;align-items:center;gap:18px;min-height:72px;border-bottom:1px solid var(--line);padding:10px 4px}.tokenize-row:hover{background:#ffffff03}.tokenize-id{display:flex;align-items:center;gap:12px;min-width:0}.tokenize-id input{width:19px;height:19px;flex:none;accent-color:var(--mint)}.tokenize-id strong{display:block}.tokenize-id span,.tokenize-stat span{display:block;color:var(--muted);font-size:.7rem}.tokenize-stat{color:var(--ink-2);font:.74rem var(--font-mono);font-variant-numeric:tabular-nums}.tokenize-token{overflow:hidden;text-overflow:ellipsis;color:var(--mint);font:.7rem var(--font-mono)}.tokenize-row.is-staged{background:#10201b}.tokenize-row.is-staged .tokenize-id strong{color:var(--mint)}.tokenize-conflict{color:var(--yellow);font-size:.68rem}.tokenize-empty{padding:48px 10px;text-align:center;color:var(--muted)}
 
 /* color lab */
 .colorlab{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:24px;align-items:start}.lab-controls{position:sticky;top:16px;background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:10px;max-height:calc(100vh - 32px);overflow:auto}
@@ -163,9 +166,10 @@ input[type=range]{accent-color:var(--mint);min-width:150px}
 .drawer{position:fixed;right:0;top:0;bottom:0;width:min(560px,94vw);background:var(--surface);border-left:1px solid var(--line);z-index:80;transform:translateX(100%);transition:transform .25s var(--ease);display:flex;flex-direction:column;box-shadow:-20px 0 60px #000b}.drawer.on{transform:none}.drawer header{display:flex;justify-content:space-between;gap:12px;padding:18px;border-bottom:1px solid var(--line)}.drawer h3{margin:0;font-size:1rem}.drawer .sub{color:var(--muted);font-size:.72rem;margin-top:4px}.drawer .body{overflow:auto;padding:8px 18px 28px}.selrow{padding:10px 0;border-bottom:1px solid var(--line);font-size:.78rem}.selrow .s{font-family:var(--font-mono);overflow-wrap:anywhere}.selrow .m{color:var(--muted);font:.68rem var(--font-mono)}.selrow .m b{color:var(--mint)}.scrim{position:fixed;inset:0;background:#000a;z-index:75;opacity:0;pointer-events:none;transition:opacity .2s}.scrim.on{opacity:1;pointer-events:auto}
 .exempt-tools{position:sticky;top:-8px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;background:var(--surface);border-bottom:1px solid var(--line)}.exempt-tools strong{font-size:.78rem}.exempt-tools span{color:var(--muted);font-size:.68rem}.selrow.exemptable{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start}.selrow.exemptable input{margin-top:4px;accent-color:var(--yellow)}.selrow.is-exempt{opacity:.55}.selrow.is-exempt .s{text-decoration:line-through;text-decoration-color:var(--yellow)}
 dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border-radius:10px;background:var(--surface);color:var(--ink);padding:0;box-shadow:0 30px 100px #000}dialog::backdrop{background:#000c}.paste-form{padding:22px}.paste-form h2{margin:0}.paste-form p{color:var(--muted);font-size:.82rem}.paste-form textarea{width:100%;min-height:320px;resize:vertical;font-family:var(--font-mono);font-size:.78rem}.paste-foot{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-top:12px}.paste-foot label{display:grid;gap:4px;color:var(--muted);font-size:.72rem;flex:1}.paste-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.db-dialog{width:min(940px,calc(100vw - 30px))}.db-shell{padding:0 22px 22px}.db-head{display:flex;align-items:flex-start;gap:18px;padding:22px 0 18px;border-bottom:1px solid var(--line)}.db-head h2{margin:0;font-size:1.3rem;letter-spacing:-.02em}.db-head p{margin:4px 0 0;color:var(--muted);font-size:.8rem}.db-close{margin-left:auto;flex:none}.db-health{display:flex;align-items:center;gap:9px;min-height:46px;color:var(--ink-2);font:.72rem var(--font-mono);letter-spacing:.02em}.db-health::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}.db-health[data-status=healthy]::before{background:var(--mint)}.db-health[data-status=damaged]::before{background:var(--danger)}.db-list{border-top:1px solid var(--line)}.db-row{display:grid;grid-template-columns:minmax(140px,1.2fr) repeat(4,minmax(70px,.55fr)) minmax(180px,auto);align-items:center;gap:12px;min-height:62px;border-bottom:1px solid var(--line);font-size:.78rem}.db-row:hover{background:#ffffff03}.db-row__name{min-width:0}.db-row__name strong{display:block;overflow:hidden;text-overflow:ellipsis;color:var(--ink);font-size:.9rem}.db-row__name span,.db-cell span{display:block;color:var(--muted);font-size:.66rem}.db-cell{font:500 .76rem var(--font-mono);font-variant-numeric:tabular-nums}.db-actions{display:flex;justify-content:flex-end;gap:7px}.db-confirm{grid-column:1/-1;display:flex;align-items:center;gap:10px;min-height:54px;padding:9px 0;color:var(--ink-2)}.db-confirm strong{color:var(--danger)}.db-confirm .db-actions{margin-left:auto}.db-empty{margin:0;padding:42px 12px;text-align:center;color:var(--muted);border-bottom:1px solid var(--line)}.db-error{color:var(--danger)}
 
 @media(max-width:980px){.source-grid{grid-template-columns:1fr 1fr}.source-cue{display:none}.source-zone{min-height:430px}.colorlab{grid-template-columns:1fr}.lab-controls{position:static;max-height:none}.rung{grid-template-columns:120px 1fr 100px;gap:14px}.source-summary{display:none}}
-@media(max-width:650px){.mast{padding-inline:16px}.spectrum-marker{width:96px}.source-zone{padding:58px 16px 34px}.source-grid{grid-template-columns:1fr}.source-card,.source-add{height:128px}.tabs{padding-inline:8px}.tab{padding:16px 13px 13px;font-size:.88rem}.screen{padding:22px 12px 116px}.controlbar{display:grid;gap:12px}.controlbar label{display:grid;gap:5px}.controlbar select,.controlbar input[type=text]{width:100%;min-width:0}.scope-dock{bottom:max(8px,env(safe-area-inset-bottom));width:calc(100vw - 16px);grid-template-columns:1fr auto;gap:6px}.scope-dock__lead{display:none}.scope-list{grid-column:1}.scope-stage{grid-column:2}.rung{grid-template-columns:72px 1fr 58px;gap:8px;padding:6px 9px}.rung .val{font-size:.75rem}.rung .freq span{font-size:.65rem}.fam{grid-template-columns:1fr}.wall{grid-template-columns:1fr}.themeknob{grid-template-columns:1fr;gap:4px}.themeknob .out{text-align:left}.tierlist{grid-template-columns:1fr 1fr}.ord__body{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)}.ord__text code{font-size:.58rem}.ord__meta{display:none}.staged-panel{grid-template-columns:1fr}.export-dock{padding-bottom:116px}}
+@media(max-width:650px){.mast{padding-inline:16px}.wordmark{font-size:1.08rem}.project-box{display:none}.db-open{margin-left:auto}.spectrum-marker{display:none}.source-zone{padding:58px 16px 34px}.source-grid{grid-template-columns:1fr}.source-card,.source-add{height:128px}.tabs{padding-inline:8px}.tab{padding:16px 13px 13px;font-size:.88rem}.screen{padding:22px 12px 116px}.controlbar{display:grid;gap:12px}.controlbar label{display:grid;gap:5px}.controlbar select,.controlbar input[type=text]{width:100%;min-width:0}.scope-dock{bottom:max(8px,env(safe-area-inset-bottom));width:calc(100vw - 16px);grid-template-columns:1fr auto;gap:6px}.scope-dock__lead{display:none}.scope-list{grid-column:1}.scope-stage{grid-column:2}.rung{grid-template-columns:72px 1fr 58px;gap:8px;padding:6px 9px}.rung .val{font-size:.75rem}.rung .freq span{font-size:.65rem}.fam{grid-template-columns:1fr}.wall{grid-template-columns:1fr}.themeknob{grid-template-columns:1fr;gap:4px}.themeknob .out{text-align:left}.tierlist{grid-template-columns:1fr 1fr}.ord__body{grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)}.ord__text code{font-size:.58rem}.ord__meta{display:none}.staged-panel{grid-template-columns:1fr}.export-dock{padding-bottom:116px}.db-shell{padding-inline:14px}.db-row{grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px 0}.db-cell{display:none}.db-actions{grid-column:2;grid-row:1}.db-confirm{grid-column:1/-1;display:grid;grid-template-columns:1fr}.db-confirm .db-actions{margin:0;justify-content:flex-start}.tokenize-head{grid-template-columns:1fr}.tokenize-row{grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:13px 2px}.tokenize-row .tokenize-stat{grid-column:1}.tokenize-token{grid-column:1/-1}.tokenize-row .btn{grid-column:2;grid-row:1}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -174,6 +178,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
 <header class="mast">
   <h1 class="wordmark" aria-label="ConsoliChrome"><span class="c1">C</span><span class="c2">O</span><span class="c3">N</span><span class="c4">S</span><span class="c5">O</span><span class="c6">L</span><span class="c1">I</span><span class="chrome">CHROME</span></h1>
   <div class="project-box"><span>Project</span><input id="project-name" type="text" value="workspace" aria-label="Project name in the object store"></div>
+  <button class="db-open" id="db-open" type="button">Database</button>
   <div id="spectrumMarker" class="spectrum-marker" aria-hidden="true"></div>
 </header>
 
@@ -200,6 +205,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
     <button class="tab" role="tab" aria-selected="false" data-screen="fam">Family finder</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="wall">Inventory wall</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="cross">Across themes</button>
+    <button class="tab" role="tab" aria-selected="false" data-screen="token">Tokenize</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="obj">Objects</button>
     <button class="tab" role="tab" aria-selected="false" data-screen="color">Color lab</button>
     <button class="export-jump" id="jump-export" type="button">Export CSS ↓</button>
@@ -248,6 +254,12 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
     <div class="card"><h3>Invariant tokens <span>same value in every theme that defines them</span></h3><div id="invbox"></div></div>
   </section>
 
+  <section class="screen" id="screen-token">
+    <header class="tokenize-head"><p class="lede">Turn detected parameter values into <b>theme-ready custom properties</b>. Each token starts with its current value in Root and every named theme; stage only the parameter groups you want exported.</p><button class="btn compact" id="tokenize-all" type="button">Stage all parameters</button></header>
+    <div class="note" id="tokenize-note"></div>
+    <div class="tokenize-list" id="tokenize-list"></div>
+  </section>
+
   <section class="screen" id="screen-obj">
     <p class="lede">The object store's view: every selector consolidated into <b>one entity per context</b>, duplicates merged by cascade order, every overridden value kept with its source. Click a row for the full property history.</p>
     <div class="row" style="margin-bottom:16px">
@@ -290,7 +302,7 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
 
   <section class="export-dock" aria-labelledby="export-title">
     <div class="export-shell">
-      <header class="export-head"><h2 class="export-title" id="export-title">Export result<span>All enabled tier decisions and Color Lab changes are combined here.</span></h2>
+      <header class="export-head"><h2 class="export-title" id="export-title">Export result<span>Enabled tiers, token groups, and Color Lab changes are combined here.</span></h2>
         <div class="export-actions"><span class="export-status" id="export-status" role="status" aria-live="polite">WAITING FOR SOURCE</span><button class="btn compact" id="export-copy" type="button" disabled>Copy result</button><button class="btn compact export-ready" id="export-download" type="button" disabled>Download CSS</button></div></header>
       <section class="staged-panel" id="staged-changes" aria-labelledby="staged-title"><div class="staged-heading"><h3 id="staged-title">Staged changes</h3><output id="staged-count">0</output></div><div class="staged-list" id="staged-list"><p class="staged-empty">No changes staged; export matches the source.</p></div></section>
       <pre class="export-preview" id="export-preview" tabindex="0" data-placeholder="Add a stylesheet to enable the export."></pre><div class="export-note" id="export-note">The source stylesheets stay untouched.</div>
@@ -301,6 +313,8 @@ dialog{width:min(760px,calc(100vw - 30px));border:1px solid var(--line-2);border
 <div class="scrim" id="scrim"></div><aside class="drawer" id="drawer"><header><div><h3 id="dtitle">—</h3><div class="sub" id="dsub"></div></div><button class="btn compact" id="dclose" type="button" aria-label="Close source drawer">×</button></header><div class="body" id="dbody"></div></aside>
 
 <dialog id="paste-dialog" aria-labelledby="paste-title"><form class="paste-form" id="paste-form" method="dialog"><h2 id="paste-title">Paste a stylesheet</h2><p>Add one stylesheet now; reopen this panel to add more. Nothing is uploaded anywhere.</p><textarea id="paste-text" spellcheck="false" placeholder=":root { --brand: #2f6bdf; }"></textarea><div class="paste-foot"><label>Name<input type="text" id="paste-name" value="pasted.css"></label><span class="hint mono" id="paste-count">0 characters</span></div><div class="lab-error" id="paste-error" hidden></div><div class="paste-actions"><button class="btn" id="paste-cancel" type="button">Cancel</button><button class="btn primary" type="submit">Add stylesheet</button></div></form></dialog>
+
+<dialog class="db-dialog" id="db-dialog" aria-labelledby="db-title"><section class="db-shell"><header class="db-head"><div><h2 id="db-title">Local database</h2><p>Restore puts a saved project back into the workbench. Delete removes all of that project's stored history.</p></div><button class="btn compact db-close" id="db-close" type="button" aria-label="Close database manager">Close</button></header><div class="db-health" id="db-health" role="status" aria-live="polite">Reading cc.db…</div><div class="db-list" id="db-list"></div></section></dialog>
 
 <div id="color-probe" aria-hidden="true" style="position:fixed;left:-9999px;top:-9999px"></div>
 <script src="/js/colorspace.js"></script>
@@ -323,7 +337,7 @@ let D=null,M=null;
 const exemptions=new Set();
 const scopeFilter={all:true,selected:new Set()};
 let scopedTotalsCache=null;
-const workbenchNames=['tier','fam','wall','cross','obj','color'];
+const workbenchNames=['tier','fam','wall','cross','token','obj','color'];
 const dirtyWorkbenches=new Set(workbenchNames);
 
 function activeWorkbench(){return $('.tab[aria-selected="true"]')?.dataset.screen||'tier'}
@@ -334,6 +348,7 @@ function renderWorkbench(name=activeWorkbench()){
   else if(name==='fam')drawFamilies();
   else if(name==='wall')drawWall();
   else if(name==='cross')drawCross();
+  else if(name==='token')drawTokenize();
   else if(name==='obj')drawObjects();
   else if(name==='color')invalidateColorViews();
 }
@@ -672,7 +687,7 @@ async function buildData(items,{progress=()=>{},cancelled=()=>false}={}){
 let analysisTimer,analysisSequence=0;
 function queueAnalysis(){
   clearTimeout(analysisTimer);const sequence=++analysisSequence;
-  if(!sources.length){D=M=null;scopedTotalsCache=null;tierPlans.clear();tierEdits.clear();tierModes.clear();exemptions.clear();ccHistory=[];ccDbEntries=[];ccFolded=null;ccRestored=null;ccHydrated=false;ccUnmatchedExemptions=[];pendingFrozenHexes=[];renderResumeNote();$('#workspace').hidden=true;$('#workspace').removeAttribute('aria-busy');resetColorLab();return}
+  if(!sources.length){D=M=null;scopedTotalsCache=null;tierPlans.clear();tierEdits.clear();tierModes.clear();tokenizedParams.clear();exemptions.clear();ccHistory=[];ccDbEntries=[];ccFolded=null;ccRestored=null;ccHydrated=false;ccUnmatchedExemptions=[];pendingFrozenHexes=[];renderResumeNote();$('#workspace').hidden=true;$('#workspace').removeAttribute('aria-busy');resetColorLab();return}
   const keptPairs=snapshotExemptionPairs();
   const keptFrozen=colorState.entries.filter(entry=>colorState.excluded.has(entry.key)).map(entry=>entry.hex);
   ccHistory=[...sources.flatMap(source=>parseCcLog(source.content)),...ccDbEntries];ccFolded=foldCcEntries(ccHistory);
@@ -727,6 +742,7 @@ let bandsCache=[],liveCache=[];const knobValues={};
 const tierPlans=new Map();
 const tierEdits=new Map();
 const tierModes=new Map();
+const tokenizedParams=new Set();
 const NOT_A_SCALE={layer:'Z-index is <b>ordinal</b>: it describes stacking order, not physical magnitude.',opacity:'<b>0 and 1 are states</b>. Intermediate values are usually an alpha ramp rather than a size scale.',radius:'<b>50% and oversized pixel values are shape kinds</b> (circle and pill), not ordinary radii.'};
 function valuesFor(id){const param=D.params[id];return{p:param,live:param.values.slice(),aside:[]}}
 function cutsK(xs,weights,k){
@@ -852,7 +868,7 @@ function renderTier(recompute=false){if(!D||!PARAM_IDS.length)return;const id=$(
 
 $('#paramsel').onchange=()=>{names=['tiny','small','medium','large','huge','giant','colossal'];renderTier()};$('#fontsel').onchange=event=>{FONT=event.target.value;drawLadder();drawTiers()};$('#ptext').oninput=debounce(()=>{drawLadder();drawTiers()},150);
 $('#addtier').onclick=()=>{if(K<7){K++;renderTier(true)}};$('#deltier').onclick=()=>{if(K>2){K--;renderTier(true)}};
-$('#apply-tier').onclick=()=>{const plan=tierPlans.get($('#paramsel').value);if(!plan)return;plan.enabled=!plan.enabled;syncTierExportButton();rebuildExport()};
+$('#apply-tier').onclick=()=>{const plan=tierPlans.get($('#paramsel').value);if(!plan)return;plan.enabled=!plan.enabled;if(plan.enabled)tokenizedParams.delete(plan.id);syncTierExportButton();dirtyWorkbenches.add('token');rebuildExport()};
 $('#f-add').onclick=()=>{MODE='add';tierModes.set($('#paramsel').value,MODE);$('#f-add').setAttribute('aria-pressed','true');$('#f-mul').setAttribute('aria-pressed','false');drawFormula();drawKnobs();captureTierPlan()};$('#f-mul').onclick=()=>{MODE='mul';tierModes.set($('#paramsel').value,MODE);$('#f-mul').setAttribute('aria-pressed','true');$('#f-add').setAttribute('aria-pressed','false');drawFormula();drawKnobs();captureTierPlan()};
 addEventListener('resize',debounce(()=>{if(D&&$('#screen-tier').classList.contains('on'))drawLadder()},120));
 
@@ -896,6 +912,33 @@ function drawCross(){
   const table=$('#varytbl');table.innerHTML='<thead><tr><th>token</th><th>distinct values</th><th>themes</th><th></th></tr></thead>';const body=el('tbody');varies.slice(0,crossRenderLimit).forEach(value=>{const row=el('tr');row.innerHTML=`<td class="mono">${value.name}</td><td class="mono">${value.distinct}</td><td class="mono">${value.themes}</td><td><div class="bar"><i style="width:${themes.length?value.distinct/themes.length*100:0}%"></i></div></td>`;body.append(row)});table.append(body);
   const box=$('#invbox');box.replaceChildren();if(!invariant.length)box.append(el('p','hint','None detected in the visible themes.'));invariant.slice(0,crossRenderLimit).forEach(value=>{const row=el('div','selrow');row.innerHTML=`<div class="s">${value.name}</div><div class="m">= <b>${value.value}</b> in ${value.themes} themes</div>`;box.append(row)});if(limited){const more=el('button','btn',`Show up to ${Math.min(crossRenderLimit+500,Math.max(varies.length,invariant.length))} theme tokens`);more.type='button';more.onclick=()=>{crossRenderLimit+=500;drawCross()};box.append(more)}
 }
+
+/* ---------- tokenize ---------- */
+function parameterTokens(id){
+  const used=new Set();return D.params[id].values.map((value,index)=>{
+    const readable=tokenSlug(value.raw.replace(/^-/,'minus-').replace(/%/g,'-percent'));
+    const base=`--cc-${tokenSlug(id)}-${readable||index+1}`;let token=base,suffix=2;while(used.has(token)){token=`${base}-${suffix++}`}used.add(token);return{token,value};
+  });
+}
+function setParameterTokenized(id,enabled){
+  if(enabled){tokenizedParams.add(id);const tier=tierPlans.get(id);if(tier)tier.enabled=false}else tokenizedParams.delete(id);
+  if($('#paramsel').value===id)syncTierExportButton();dirtyWorkbenches.add('token');drawTokenize();rebuildExport();
+}
+function drawTokenize(){
+  if(!D)return;dirtyWorkbenches.delete('token');const list=$('#tokenize-list');list.replaceChildren();const available=PARAM_IDS.filter(id=>D.params[id].total);
+  const themeCopy=M.themes.length?`<b>${M.themes.length} theme scope${M.themes.length===1?'':'s'} detected.</b> New tokens will be declared in Root and copied into ${M.themes.filter(theme=>theme!=='root').length} named theme${M.themes.filter(theme=>theme!=='root').length===1?'':'s'} with the current values intact.`:'<b>No named themes detected.</b> Tokens will be declared in Root so the file is ready for themes later.';$('#tokenize-note').innerHTML=themeCopy+' Selecting tokens replaces an enabled Tier Maker plan for the same parameter.';
+  if(!available.length){list.append(el('p','tokenize-empty','No scale-like parameter values were detected.'));return}
+  available.forEach(id=>{
+    const param=D.params[id],staged=tokenizedParams.has(id),themed=param.values.reduce((sum,value)=>sum+value.themed,0),globals=param.total-themed,row=el('article','tokenize-row'+(staged?' is-staged':''));
+    const identity=el('label','tokenize-id'),check=el('input');check.type='checkbox';check.checked=staged;check.setAttribute('aria-label',`Tokenize ${param.label}`);const copy=el('span');copy.append(el('strong',null,param.label),el('span',null,`${param.values.length} distinct value${param.values.length===1?'':'s'} · ${param.total} uses`));identity.append(check,copy);
+    const scope=el('div','tokenize-stat',`${fmt(globals)} global · ${fmt(themed)} themed`);scope.append(el('span',null,themed&&globals?'mixed scopes':themed?'theme-linked':'global parameter'));
+    const tokens=parameterTokens(id),sample=el('div','tokenize-token',tokens.slice(0,2).map(entry=>entry.token).join(' · ')+(tokens.length>2?` · +${tokens.length-2}`:''));sample.title=tokens.map(entry=>`${entry.token}: ${entry.value.raw}`).join('\n');
+    const tierConflict=tierPlans.get(id)?.enabled,action=el('button','btn compact',staged?'Staged':'Stage');action.type='button';if(tierConflict){action.textContent='Use tokens instead';action.classList.add('tokenize-conflict')}
+    const toggle=()=>setParameterTokenized(id,!tokenizedParams.has(id));check.onchange=()=>setParameterTokenized(id,check.checked);action.onclick=toggle;row.append(identity,scope,sample,action);list.append(row);
+  });
+  const allStaged=available.every(id=>tokenizedParams.has(id));$('#tokenize-all').textContent=allStaged?'Clear tokenization':'Stage all parameters';
+}
+$('#tokenize-all').onclick=()=>{if(!D)return;const available=PARAM_IDS.filter(id=>D.params[id].total),clear=available.every(id=>tokenizedParams.has(id));available.forEach(id=>{if(clear)tokenizedParams.delete(id);else{tokenizedParams.add(id);const tier=tierPlans.get(id);if(tier)tier.enabled=false}});syncTierExportButton();drawTokenize();rebuildExport()};
 function hydrateReport(){
   PARAM_IDS=Object.keys(D.params).filter(id=>D.params[id].values.length>0);const params=$('#paramsel'),previous=params.value;params.replaceChildren();PARAM_IDS.forEach(id=>{const param=D.params[id],option=el('option');option.value=id;option.textContent=`${param.label} (${param.values.length} values, ${param.total} uses)`;params.append(option)});params.value=PARAM_IDS.includes(previous)?previous:PARAM_IDS.includes('font-size')?'font-size':PARAM_IDS[0]||'';
   const fonts=$('#fontsel'),previousFont=FONT;fonts.replaceChildren();const base=el('option');base.value='';base.textContent='Default preview font';fonts.append(base);D.fontChoices.forEach(choice=>{const option=el('option');option.value=choice.cssStack;option.textContent=choice.variables.length?`${choice.variables.join(' / ')} — ${choice.label}`:choice.label;fonts.append(option)});FONT=D.fontlist.includes(previousFont)?previousFont:'';fonts.value=FONT;K=3;names=['tiny','small','medium','large','huge','giant','colossal'];renderScopeDock();refreshParamLabels();$('#family-scope').textContent=`Showing ${scopeSummary().toLowerCase()}`;
@@ -1078,6 +1121,33 @@ async function ccdbImport(items){
   }
   dirtyWorkbenches.add('obj');if(activeWorkbench()==='obj')renderWorkbench('obj');renderResumeChips();
 }
+const formatDbSize=bytes=>bytes<1024?`${bytes} B`:bytes<1048576?`${(bytes/1024).toFixed(1)} KB`:`${(bytes/1048576).toFixed(1)} MB`;
+async function openDatabaseManager(){
+  const dialog=$('#db-dialog'),health=$('#db-health'),list=$('#db-list');if(!dialog.open)dialog.showModal();health.dataset.status='';health.textContent='Reading cc.db…';list.replaceChildren();
+  let data;try{const response=await fetch('/api/cc/database');data=await response.json();if(!response.ok)throw new Error(data.error||'The database could not be read.')}catch(error){health.dataset.status='damaged';health.textContent='Database unavailable';list.append(el('p','db-empty db-error',error.message));return}
+  health.dataset.status=data.status;
+  if(data.status!=='healthy'){
+    health.textContent=data.status==='missing'?'cc.db has not been created yet.':`cc.db is damaged · ${data.error||'SQLite could not read it'}`;
+    list.append(el('p','db-empty db-error',data.status==='missing'?'Import a stylesheet to create the local database.':'Restore cc.db outside the app before managing its projects.'));return;
+  }
+  health.textContent=`Healthy · ${formatDbSize(data.size)}${data.modifiedAt?` · updated ${data.modifiedAt.replace('T',' ')}`:''} · ${data.projects.length} project${data.projects.length===1?'':'s'}`;
+  if(!data.projects.length){list.append(el('p','db-empty','No saved projects yet. Import a stylesheet and it will appear here.'));return}
+  data.projects.forEach(project=>renderDatabaseProject(project,list));
+}
+function renderDatabaseProject(project,list){
+  const row=el('article','db-row'),name=el('div','db-row__name');name.append(el('strong',null,project.name),el('span',null,project.last_import?`Last import ${project.last_import.replace('T',' ')}`:'No imports'));
+  const metric=(value,label)=>{const cell=el('div','db-cell',fmt(value));cell.append(el('span',null,label));return cell};
+  const actions=el('div','db-actions'),restore=el('button','btn compact primary','Restore'),remove=el('button','btn compact danger','Delete');restore.type=remove.type='button';
+  restore.onclick=async()=>{$('#db-dialog').close();await resumeProject(project.name)};
+  remove.onclick=()=>{
+    row.replaceChildren();const confirm=el('div','db-confirm'),copy=el('span');copy.append(document.createTextNode('Delete '),el('strong',null,project.name),document.createTextNode(' and all of its stored imports, objects, and decisions?'));
+    const confirmActions=el('div','db-actions'),cancel=el('button','btn compact','Keep it'),destroy=el('button','btn compact danger',`Delete ${project.name}`);cancel.type=destroy.type='button';cancel.onclick=()=>{row.remove();renderDatabaseProject(project,list)};
+    destroy.onclick=async()=>{destroy.disabled=true;destroy.textContent='Deleting…';let response,data;try{response=await fetch(`/api/cc/projects/${encodeURIComponent(project.name)}`,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({confirm:project.name})});data=await response.json()}catch{data={error:'The local server did not answer.'}}if(!response?.ok){destroy.disabled=false;destroy.textContent=`Delete ${project.name}`;copy.textContent=data.error||'The project could not be deleted.';copy.className='db-error';return}await renderResumeChips();openDatabaseManager()};
+    confirmActions.append(cancel,destroy);confirm.append(copy,confirmActions);row.append(confirm);
+  };
+  actions.append(restore,remove);row.append(name,metric(project.files,'current files'),metric(project.imports,'import history'),metric(project.entities,'objects'),metric(project.decisions,'decisions'),actions);list.append(row);
+}
+$('#db-open').onclick=openDatabaseManager;$('#db-close').onclick=()=>$('#db-dialog').close();
 function ccdbRecordDecisions(){
   if(!D)return;const project=currentProject();
   const post=(kind,payload)=>{try{fetch('/api/cc/decision',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project,kind,payload})})}catch{}};
@@ -1100,6 +1170,7 @@ async function resumeProject(name){
   let data;try{data=await(await fetch(`/api/cc/resume?project=${encodeURIComponent(name)}`)).json()}catch{return}
   if(!data?.sources?.length)return;
   $('#project-name').value=name;
+  tokenizedParams.clear();
   ccDbEntries=(data.decisions||[]).map(decision=>ccEntryFrom((decision.createdAt||'').slice(0,10)||isoDate(),`db · ${decision.kind}`,decision.payload,`${(decision.createdAt||'').slice(0,10)}: db ${decision.kind} ${JSON.stringify(decision.payload)}`));
   sources.length=0;data.sources.forEach(source=>sources.push({id:++sourceId,name:source.name,content:source.content}));
   renderSources();queueAnalysis();
@@ -1179,8 +1250,9 @@ async function rewriteDeclarations(text,byProperty){
 }
 async function applyTierPlans(content){
   const plans=[...tierPlans.values()].filter(plan=>plan.enabled&&plan.bands.length);
+  const tokenIds=[...tokenizedParams].filter(id=>D.params[id]?.total);
   let body=stripCcBlocks(content),harvested=null,scaleSection='';
-  if(plans.length){
+  if(plans.length||tokenIds.length){
     harvested=extractCcScaleSections(body);body=harvested.text;
     const byProperty=new Map(),definitions=[],themeBlocks=[],usedTokens=new Set();
     plans.forEach(plan=>{
@@ -1192,6 +1264,12 @@ async function applyTierPlans(content){
         const unchanged=plan.themeMode==='mul'?adjustment===1:adjustment===0;if(unchanged)return;
         const selectors=D.themeSelectors?.[theme]||[`:root[data-theme="${theme.replace(/["\\]/g,'\\$&')}"]`];
         const rows=bandTokens.map(({token,band})=>{const value=plan.themeMode==='mul'?band.value*adjustment:band.value+adjustment;return`  ${token}: ${compactNumber(value)}${band.unit};`});themeBlocks.push(`${selectors.join(',\n')} {\n${rows.join('\n')}\n}`);
+      });
+    });
+    tokenIds.forEach(id=>{
+      const rawMap=new Map(),tokens=parameterTokens(id);tokens.forEach(({token,value})=>{usedTokens.add(token);definitions.push(`  ${token}: ${value.raw};`);rawMap.set(value.raw.toLowerCase(),`var(${token})`)});D.params[id].props.forEach(property=>byProperty.set(property,rawMap));
+      M.themes.filter(theme=>theme!=='root').forEach(theme=>{
+        const selectors=D.themeSelectors?.[theme]||[`:root[data-theme="${theme.replace(/["\\]/g,'\\$&')}"]`],rows=tokens.map(({token,value})=>`  ${token}: ${value.raw};`);themeBlocks.push(`${selectors.join(',\n')} {\n${rows.join('\n')}\n}`);
       });
     });
     body=await rewriteDeclarations(body,byProperty);
@@ -1209,24 +1287,25 @@ function activeExemptionIds(plans){
 function changedColorRows(){
   if(!colorState?.mapping)return[];return colorState.entries.filter(entry=>colorState.mapping[entry.key]&&colorState.mapping[entry.key]!==entry.hex).map(entry=>({...entry,to:colorState.mapping[entry.key]}));
 }
-function renderStagedChanges(plans=[],colors=[],activeExemptions=new Set()){
+function renderStagedChanges(plans=[],colors=[],activeExemptions=new Set(),tokenIds=[]){
   const list=$('#staged-list');if(!list)return;list.replaceChildren();let count=0;
   plans.forEach(plan=>{
     count++;const rawCount=new Set(plan.bands.flatMap(band=>band.raws.map(raw=>raw.toLowerCase()))).size,uses=D.params[plan.id].values.filter(value=>plan.bands.some(band=>band.raws.some(raw=>raw.toLowerCase()===value.raw.toLowerCase()))).reduce((sum,value)=>sum+value.count,0),planIds=new Set(D.params[plan.id].values.flatMap(value=>value.sel.map(instance=>instance.id))),exempt=[...activeExemptions].filter(id=>planIds.has(id)).length;
     const adjustments=Object.entries(plan.themeValues||{}).filter(([,value])=>plan.themeMode==='mul'?value!==1:value!==0).map(([theme,value])=>`${theme} ${plan.themeMode==='mul'?'×':''}${compactNumber(value)}${plan.themeMode==='add'?plan.bands[0]?.unit||'':''}`),row=el('div','staged-item');row.append(el('b',null,plan.label),el('span',null,`${rawCount} values → ${plan.bands.length} tiers · ${uses} uses · all scopes${exempt?` · ${exempt} exempt`:''}`));if(adjustments.length)row.append(el('code',null,adjustments.slice(0,3).join(' · ')+(adjustments.length>3?` +${adjustments.length-3}`:'')));list.append(row);
   });
+  tokenIds.forEach(id=>{if(!D.params[id])return;count++;const param=D.params[id],row=el('div','staged-item');row.append(el('b',null,`${param.label} tokens`),el('span',null,`${param.values.length} token${param.values.length===1?'':'s'} · ${param.total} uses · Root + ${M.themes.filter(theme=>theme!=='root').length} named theme${M.themes.filter(theme=>theme!=='root').length===1?'':'s'}`));list.append(row)});
   if(colors.length){count++;const uses=colors.reduce((sum,color)=>sum+color.count,0),row=el('div','staged-item'),mode=colorState.mode[0].toUpperCase()+colorState.mode.slice(1);row.append(el('b',null,'Colors'),el('span',null,`${mode} · ${colors.length} changed · ${uses} uses · all scopes`));list.append(row)}
   if(!count)list.append(el('p','staged-empty','No changes staged; export matches the source.'));
   $('#staged-count').textContent=String(count);const jump=$('#jump-staged');jump.dataset.count=String(count);jump.textContent=`Staged ${count} ↓`;
 }
 function refreshStagedCount(){
-  const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows(),count=plans.length+(colors.length?1:0);
+  const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows(),count=plans.length+tokenizedParams.size+(colors.length?1:0);
   $('#staged-count').textContent=String(count);const jump=$('#jump-staged');jump.dataset.count=String(count);jump.textContent=`Staged ${count} ↓`;
 }
 function setExportStatus(text,state=''){
   const status=$('#export-status');status.textContent=text;if(state)status.dataset.state=state;else delete status.dataset.state;
 }
-const scheduleStagedRender=debounce(()=>{if(!D)return;const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows();renderStagedChanges(plans,colors,activeExemptionIds(plans))},300);
+const scheduleStagedRender=debounce(()=>{if(!D)return;const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows();renderStagedChanges(plans,colors,activeExemptionIds(plans),[...tokenizedParams])},300);
 function markExportDirty(){
   exportState.revision++;exportState.dirty=true;exportState.result=null;refreshStagedCount();
   const preview=$('#export-preview'),copy=$('#export-copy'),download=$('#export-download');
@@ -1250,8 +1329,8 @@ async function materializeExport(){
       if(revision!==exportState.revision)return null;
       const result=await applyTierPlans(base);if(revision!==exportState.revision)return null;exportState.result=result;exportState.dirty=false;
       $('.export-shell').classList.remove('is-stale');
-      const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows(),activeExemptions=activeExemptionIds(plans);renderStagedChanges(plans,colors,activeExemptions);
-      setExportStatus(`${plans.length} SCALE${plans.length===1?'':'S'} · ${activeExemptions.size} EXEMPT · ${colors.length} COLORS CHANGED`);
+      const plans=[...tierPlans.values()].filter(plan=>plan.enabled),colors=changedColorRows(),activeExemptions=activeExemptionIds(plans),tokenIds=[...tokenizedParams];renderStagedChanges(plans,colors,activeExemptions,tokenIds);
+      setExportStatus(`${plans.length} SCALE${plans.length===1?'':'S'} · ${tokenIds.length} TOKEN GROUP${tokenIds.length===1?'':'S'} · ${activeExemptions.size} EXEMPT · ${colors.length} COLORS CHANGED`);
       const ccNote=ccLastBlockInfo?.total?` · CC log: ${ccLastBlockInfo.total} entr${ccLastBlockInfo.total===1?'y':'ies'}${ccLastBlockInfo.fresh?` (${ccLastBlockInfo.fresh} new)`:''}`:'';
       $('#export-note').textContent=`${sources.length} source stylesheet${sources.length===1?'':'s'} combined into one CSS file · ${fmt(result.length)} characters${ccNote}. Originals stay untouched.`;
       return result;

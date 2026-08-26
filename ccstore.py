@@ -314,6 +314,92 @@ def list_projects():
         return out
 
 
+def database_overview():
+    """Return a small, read-only summary for the local database manager."""
+    info = {
+        "status": "missing",
+        "size": DB_PATH.stat().st_size if DB_PATH.exists() else 0,
+        "modifiedAt": time.strftime(
+            "%Y-%m-%dT%H:%M:%S",
+            time.localtime(DB_PATH.stat().st_mtime),
+        ) if DB_PATH.exists() else None,
+        "projects": [],
+    }
+    if not DB_PATH.exists():
+        return info
+
+    try:
+        with _lock, sqlite3.connect(
+                f"file:{DB_PATH}?mode=ro", uri=True) as conn:
+            conn.row_factory = sqlite3.Row
+            check = conn.execute("PRAGMA quick_check").fetchone()
+            if not check or check[0] != "ok":
+                info.update(status="damaged", error=check[0] if check else
+                            "SQLite could not verify the database.")
+                return info
+            info["status"] = "healthy"
+            rows = conn.execute(
+                """SELECT p.name, p.created_at,
+                          (SELECT COUNT(DISTINCT name) FROM imports
+                           WHERE project_id=p.id) AS files,
+                          (SELECT COUNT(*) FROM imports
+                           WHERE project_id=p.id) AS imports,
+                          (SELECT MAX(imported_at) FROM imports
+                           WHERE project_id=p.id) AS last_import,
+                          (SELECT COUNT(*) FROM entities
+                           WHERE project_id=p.id) AS entities,
+                          (SELECT COUNT(*) FROM decisions
+                           WHERE project_id=p.id) AS decisions
+                   FROM projects p ORDER BY p.name""").fetchall()
+            info["projects"] = [dict(row) for row in rows]
+    except sqlite3.Error as exc:
+        info.update(status="damaged", error=str(exc))
+    return info
+
+
+def delete_project(name):
+    """Delete one project and every row owned by it, in one transaction."""
+    with _lock, _connect() as conn:
+        row = conn.execute(
+            "SELECT id FROM projects WHERE name=?", (name,)).fetchone()
+        if row is None:
+            return None
+        project_id = row["id"]
+        counts = {
+            "imports": conn.execute(
+                "SELECT COUNT(*) FROM imports WHERE project_id=?",
+                (project_id,)).fetchone()[0],
+            "entities": conn.execute(
+                "SELECT COUNT(*) FROM entities WHERE project_id=?",
+                (project_id,)).fetchone()[0],
+            "decisions": conn.execute(
+                "SELECT COUNT(*) FROM decisions WHERE project_id=?",
+                (project_id,)).fetchone()[0],
+        }
+        conn.execute(
+            """DELETE FROM entity_props WHERE entity_id IN
+                 (SELECT id FROM entities WHERE project_id=?)""",
+            (project_id,))
+        conn.execute("DELETE FROM entities WHERE project_id=?", (project_id,))
+        conn.execute(
+            """DELETE FROM declarations WHERE rule_id IN
+                 (SELECT r.id FROM rules r JOIN imports i
+                  ON i.id=r.import_id WHERE i.project_id=?)""",
+            (project_id,))
+        conn.execute(
+            """DELETE FROM rules WHERE import_id IN
+                 (SELECT id FROM imports WHERE project_id=?)""",
+            (project_id,))
+        conn.execute(
+            """DELETE FROM raw_blocks WHERE import_id IN
+                 (SELECT id FROM imports WHERE project_id=?)""",
+            (project_id,))
+        conn.execute("DELETE FROM imports WHERE project_id=?", (project_id,))
+        conn.execute("DELETE FROM decisions WHERE project_id=?", (project_id,))
+        conn.execute("DELETE FROM projects WHERE id=?", (project_id,))
+        return counts
+
+
 def entities(project, query="", limit=300):
     with _lock, _connect() as conn:
         project_id = _project_id(conn, project)
