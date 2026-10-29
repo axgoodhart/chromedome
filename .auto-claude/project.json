@@ -1,0 +1,23 @@
+{
+  "schema": "apperture.project/1",
+  "islandId": "c41a926a-83b5-4ada-a3e7-c0d925022ec3",
+  "accent": "#56A0E8",
+  "tags": [
+    "color-remapping",
+    "flask",
+    "python",
+    "oklab",
+    "palette-editor",
+    "syntax-scanner",
+    "developer-tool",
+    "web-app",
+    "javascript",
+    "local-utility",
+    "text-rewriter",
+    "color-spaces"
+  ],
+  "stage": "Start",
+  "updatedAt": 1792360947295,
+  "id": "6275f71f-a4ad-496c-ac41-114afb6b2563",
+  "name": "chromap"
+}

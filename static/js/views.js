@@ -21,6 +21,7 @@ function createOrderedView({ body, fromCol, toCol, svg }) {
   let pairs = [];   // last laid-out pairing, so a resize only redraws links
   let drawFrame = null;
   let lastLayoutKey = "";
+  let pinned = null;  // pair index held lit by a click
 
   /* Group by hue family (12 x 30deg, red-centered), lightest first inside a
    * family; neutrals fall out of the wheel and ride at the end by lightness. */
@@ -89,6 +90,14 @@ function createOrderedView({ body, fromCol, toCol, svg }) {
     });
   }
 
+  function pin(index, target) {
+    pinned = pinned === index ? null : index;
+    highlight(pinned);
+    if (pinned === null) return;
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ block: "center", behavior: still ? "auto" : "smooth" });
+  }
+
   function render(nextRows) {
     if (nextRows) rows = nextRows;
 
@@ -137,16 +146,24 @@ function createOrderedView({ body, fromCol, toCol, svg }) {
       toEl: toEls[toRank.get(it.source)],
     }));
 
-    fromEls.forEach((el, i) => {
-      el.addEventListener("pointerenter", () => highlight(i));
-      el.addEventListener("pointerleave", () => highlight(null));
+    pinned = null;
+    pairs.forEach((pair, i) => {
+      pair.fromEl.addEventListener("pointerenter", () => highlight(i));
+      pair.fromEl.addEventListener("pointerleave", () => highlight(pinned));
+      pair.fromEl.addEventListener("click", () => pin(i, pair.toEl));
+      pair.toEl.addEventListener("click", () => pin(i, pair.fromEl));
     });
 
     draw(true);
   }
 
   function draw(force = false) {
-    if (!pairs.length) return;
+    if (!pairs.length) {
+      svg.replaceChildren();
+      svg.style.height = "0px";
+      lastLayoutKey = "";
+      return;
+    }
     const width = svg.clientWidth || body.clientWidth * 0.15 || 80;
     const height = Math.max(fromCol.offsetHeight, toCol.offsetHeight);
     if (!height) return;

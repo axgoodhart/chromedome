@@ -295,7 +295,7 @@ async function scanContent(name, content, size, source = "file") {
     $("preview").hidden = true;
     $("btn-download").disabled = true;
     invalidateViews();
-    showError(`No colors found in ${name}. The scanner looks for hex, rgb()/rgba(), hsl()/hsla(), CSS color names, and RTF color tables — try another file, or scan the sample.`);
+    showError(`No colors found in ${name}. The scanner looks for hex, rgb()/rgba(), hsl()/hsla(), oklch(), CSS color names, and RTF color tables — try another file, or scan the sample.`);
     return;
   }
 

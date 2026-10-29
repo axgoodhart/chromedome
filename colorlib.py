@@ -1,7 +1,7 @@
 """Chromap color engine.
 
-Scans text for color literals (hex, rgb()/rgba(), hsl()/hsla(), CSS named
-colors, RTF \\red\\green\\blue runs), builds the color map, and rewrites the
+Scans text for color literals (hex, rgb()/rgba(), hsl()/hsla(), oklch(),
+CSS named colors, RTF \\red\\green\\blue runs), builds the color map, and rewrites the
 text under one of four transform modes: simplify, align, shuffle, theme.
 
 Every literal keeps its original notation on the way back out — an hsl()
@@ -25,7 +25,7 @@ TOKEN_RE = re.compile(
     r"""
     (?P<hex>\#(?:[0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{4}|[0-9a-fA-F]{3}))
         (?![0-9a-fA-F])
-  | (?P<func>(?:rgba?|hsla?)\(\s*[^)]*?\))
+  | (?P<func>(?:rgba?|hsla?|oklch)\(\s*[^)]*?\))
   | (?P<rtf>\\red(?P<rr>\d{1,3})\\green(?P<rg>\d{1,3})\\blue(?P<rb>\d{1,3}))
   | (?<![\w#.&-])(?P<named>""" + _NAMED_ALT + r""")(?![\w-])
     """,
@@ -39,6 +39,15 @@ FUNC_BODY_RE = re.compile(
     r"(?P<b>" + _NUM + r")(?P<bu>%)?\s*[,\s]\s*"
     r"(?P<c>" + _NUM + r")(?P<cu>%)?"
     r"(?:\s*[,/]\s*(?P<alpha>" + _NUM + r")(?P<alphau>%)?)?\s*\)",
+    re.IGNORECASE,
+)
+
+OKLCH_BODY_RE = re.compile(
+    r"oklch\(\s*"
+    r"(?P<L>" + _NUM + r")(?P<Lu>%)?\s+"
+    r"(?P<C>" + _NUM + r")(?P<Cu>%)?\s+"
+    r"(?P<H>" + _NUM + r")(?:deg)?"
+    r"(?:\s*/\s*(?P<alpha>" + _NUM + r")(?P<alphau>%)?)?\s*\)",
     re.IGNORECASE,
 )
 
@@ -56,8 +65,27 @@ def _hex_to_rgba(token):
     return (r, g, b), a
 
 
+def _oklch_to_rgba(token):
+    m = OKLCH_BODY_RE.fullmatch(token)
+    if not m:
+        return None
+    L = float(m.group("L")) / (100.0 if m.group("Lu") else 1.0)
+    C = float(m.group("C")) * (0.004 if m.group("Cu") else 1.0)  # 100% = 0.4
+    H = math.radians(float(m.group("H")))
+    alpha = None
+    if m.group("alpha") is not None:
+        alpha = float(m.group("alpha"))
+        if m.group("alphau") == "%":
+            alpha /= 100.0
+        alpha = max(0.0, min(1.0, alpha))
+    return oklch_to_rgb(L, max(0.0, C), H), alpha
+
+
 def _func_to_rgba(token):
-    m = FUNC_BODY_RE.fullmatch(token.strip())
+    token = token.strip()
+    if token.lower().startswith("oklch"):
+        return _oklch_to_rgba(token)
+    m = FUNC_BODY_RE.fullmatch(token)
     if not m:
         return None
     fn = m.group("fn").lower()
@@ -557,6 +585,21 @@ def _fmt_alpha(alpha):
     return s or "0"
 
 
+def _fmt_num(v, places=3):
+    s = ("%.*f" % (places, v)).rstrip("0").rstrip(".")
+    return s or "0"
+
+
+def _fmt_oklch(rgb, alpha):
+    L, a, b = rgb_to_oklab(tuple(rgb))
+    C = math.hypot(a, b)
+    H = math.degrees(math.atan2(b, a)) % 360 if C >= 0.0001 else 0.0
+    body = "%s%% %s %s" % (_fmt_num(L * 100, 1), _fmt_num(C), _fmt_num(H, 1))
+    if alpha is not None:
+        return "oklch(%s / %s)" % (body, _fmt_alpha(alpha))
+    return "oklch(%s)" % body
+
+
 def format_like(original_fmt, rgb, alpha):
     """Render rgb in the same notation the original literal used."""
     if original_fmt == "hex":
@@ -569,6 +612,8 @@ def format_like(original_fmt, rgb, alpha):
         return "rgb(%d, %d, %d)" % rgb
     if original_fmt in ("hsl", "hsla"):
         return _fmt_hsl(original_fmt, rgb, alpha)
+    if original_fmt == "oklch":
+        return _fmt_oklch(rgb, alpha)
     if original_fmt == "rtf":
         return "\\red%d\\green%d\\blue%d" % rgb
     if original_fmt == "named":
@@ -576,12 +621,13 @@ def format_like(original_fmt, rgb, alpha):
     return rgb_to_hex(rgb)
 
 
-def rewrite(content, mapping):
+def rewrite(content, mapping, tokens=None):
     """Replace every mapped literal, preserving notation and alpha.
 
     A literal whose color did not actually move is left byte-for-byte alone
     rather than re-emitted, so `#fff` stays `#fff` and a no-op remap returns
-    the file untouched.
+    the file untouched. `tokens` ({hex: --name}) swaps opaque mapped literals
+    for var(--name).
     """
     def _sub(m):
         parsed = parse_token(m)
@@ -589,9 +635,16 @@ def rewrite(content, mapping):
             return m.group(0)
         rgb, alpha, fmt = parsed
         key = "%d,%d,%d" % rgb
-        if key not in mapping or tuple(mapping[key]) == tuple(rgb):
+        if key not in mapping:
             return m.group(0)
-        return format_like(fmt, mapping[key], alpha)
+        new = tuple(mapping[key])
+        token = (tokens and alpha is None and fmt != "rtf"
+                 and tokens.get(rgb_to_hex(new)))
+        if token:
+            return "var(%s)" % token
+        if new == tuple(rgb):
+            return m.group(0)
+        return format_like(fmt, new, alpha)
 
     return TOKEN_RE.sub(_sub, content)
 

@@ -1,5 +1,6 @@
 """Chromap — local color remapper. Run: python3 server.py"""
 
+import re
 from collections import OrderedDict
 from secrets import token_urlsafe
 from threading import Lock
@@ -152,7 +153,15 @@ def export_document(document_id):
             return jsonify({"error": "The color mapping is invalid."}), 400
         mapping[key] = tuple(
             int(value[index:index + 2], 16) for index in (1, 3, 5))
-    return jsonify({"result": colorlib.rewrite(document["content"], mapping)})
+    tokens = data.get("tokens") or {}
+    if not isinstance(tokens, dict) or not all(
+            isinstance(h, str) and colorlib.is_six_digit_hex(h)
+            and isinstance(n, str) and re.fullmatch(r"--[\w-]+", n)
+            for h, n in tokens.items()):
+        return jsonify({"error": "The color tokens are invalid."}), 400
+    tokens = {h.lower(): n for h, n in tokens.items()}
+    return jsonify({"result": colorlib.rewrite(
+        document["content"], mapping, tokens)})
 
 
 @app.post("/api/scan")
